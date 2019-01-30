@@ -1,0 +1,196 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://2pui.gd" type="Script" id=1]
+[ext_resource path="res://assets/main_font_small.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/main_font_medium.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/main_font_large.tres" type="DynamicFont" id=4]
+[ext_resource path="res://toggle_button.gd" type="Script" id=5]
+[ext_resource path="res://assets/sounds/00 - Desktop - tos keypress2.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/00 - Desktop - tos keypress1.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/00 - Desktop - tos keypress3.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/sounds/00 - Desktop - tos keypress6.ogg" type="AudioStream" id=9]
+
+[node name="ui" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
+script = ExtResource( 1 )
+
+[node name="shadow" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 49.0
+margin_right = 20.0
+margin_bottom = 18.0
+color = Color( 0, 0, 0, 0.52549 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="label" type="ColorRect" parent="VBoxContainer"]
+margin_right = 600.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 25 )
+size_flags_vertical = 5
+color = Color( 0.305882, 0.305882, 0.305882, 1 )
+
+[node name="Label" type="Label" parent="VBoxContainer/label"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 2 )
+text = "CONN"
+align = 1
+valign = 1
+
+[node name="helmandtactical" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 29.0
+margin_right = 600.0
+margin_bottom = 524.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="course" type="ColorRect" parent="VBoxContainer/helmandtactical"]
+editor/display_folded = true
+margin_right = 297.0
+margin_bottom = 495.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0.87451, 0.0352941, 1 )
+
+[node name="Set_course" type="Button" parent="VBoxContainer/helmandtactical/course"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.796078, 0.796078, 0.796078, 1 )
+text = "Set Course"
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/helmandtactical"]
+editor/display_folded = true
+margin_left = 302.0
+margin_right = 600.0
+margin_bottom = 495.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="change_weapon" type="Button" parent="VBoxContainer/helmandtactical/VBoxContainer"]
+margin_right = 298.0
+margin_bottom = 245.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Particle Beam"
+
+[node name="Label2" type="Label" parent="VBoxContainer/helmandtactical/VBoxContainer/change_weapon"]
+anchor_right = 1.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 2 )
+text = "WEAPON"
+align = 1
+valign = 1
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/helmandtactical/VBoxContainer"]
+visible = false
+margin_top = 166.0
+margin_right = 298.0
+margin_bottom = 328.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+toggle_mode = true
+flat = true
+script = ExtResource( 5 )
+
+[node name="weapons" type="ColorRect" parent="VBoxContainer/helmandtactical/VBoxContainer"]
+margin_top = 249.0
+margin_right = 298.0
+margin_bottom = 495.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.87451, 0.839216, 0, 1 )
+
+[node name="Target_weapons" type="Button" parent="VBoxContainer/helmandtactical/VBoxContainer/weapons"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.63171
+margin_bottom = 1.63171
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.796078, 0.796078, 0.796078, 1 )
+text = "Target Weapons"
+flat = true
+
+[node name="masterselector" type="Control" parent="VBoxContainer"]
+margin_top = 528.0
+margin_right = 600.0
+margin_bottom = 1024.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/masterselector"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control2" type="Control" parent="VBoxContainer/masterselector/HBoxContainer"]
+margin_right = 600.0
+margin_bottom = 496.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/masterselector/HBoxContainer/Control2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.760784, 0.392157, 0, 1 )
+
+[node name="cancel" type="Button" parent="VBoxContainer/masterselector/HBoxContainer/Control2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 60 )
+rect_scale = Vector2( 1.00294, 1 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "CANCEL"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/masterselector"]
+stream = ExtResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[connection signal="pressed" from="VBoxContainer/helmandtactical/course/Set_course" to="." method="_on_Set_course_pressed"]
+[connection signal="pressed" from="VBoxContainer/helmandtactical/VBoxContainer/change_weapon" to="." method="_on_change_weapon_pressed"]
+[connection signal="pressed" from="VBoxContainer/helmandtactical/VBoxContainer/weapons/Target_weapons" to="." method="_on_Target_weapons_pressed"]
+[connection signal="pressed" from="VBoxContainer/masterselector/HBoxContainer/Control2/cancel" to="." method="_on_cancel_pressed"]

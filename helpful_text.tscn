@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://helpful_text.gd" type="Script" id=1]
+[ext_resource path="res://assets/main_font_large.tres" type="DynamicFont" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 708.463
+margin_right = 10.0
+margin_bottom = -228.537
+color = Color( 0, 0, 0, 1 )
+
+[node name="pointer" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -50.0
+margin_top = 735.836
+margin_right = 50.0
+margin_bottom = 835.836
+rect_rotation = 45.0
+rect_pivot_offset = Vector2( 50, 50 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 698.463
+margin_bottom = -238.537
+
+[node name="Label" type="Label" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Click to start a new game!"
+align = 1
+valign = 1
+

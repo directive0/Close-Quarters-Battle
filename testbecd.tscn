@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://torpedo.tscn" type="PackedScene" id=1]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 305.378, 343.55 )
+
+[node name="torpedo" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 2, 2 )
+

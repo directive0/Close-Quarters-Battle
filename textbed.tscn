@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/torpedoes/torp.png" type="Texture" id=1]
+[ext_resource path="res://assets/torpedoes/streaks.png" type="Texture" id=2]
+[ext_resource path="res://streak.gd" type="Script" id=3]
+[ext_resource path="res://assets/sounds/00 - Desktop - tos photon torpedo 2.ogg" type="AudioStream" id=4]
+
+[node name="Node2D" type="Node2D"]
+_sections_unfolded = [ "Visibility" ]
+
+[node name="torpedo" type="Node2D" parent="."]
+modulate = Color( 1, 0.815686, 0.815686, 1 )
+position = Vector2( 299.188, 520.626 )
+scale = Vector2( 2, 2 )
+_sections_unfolded = [ "Script", "Transform", "Visibility" ]
+
+[node name="torp" type="Sprite" parent="torpedo"]
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Animation", "Offset" ]
+
+[node name="streaks" type="Sprite" parent="torpedo"]
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="streaks2" type="Sprite" parent="torpedo"]
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="streaks3" type="Sprite" parent="torpedo"]
+rotation = 3.14159
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="streaks4" type="Sprite" parent="torpedo"]
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="streaks5" type="Sprite" parent="torpedo"]
+rotation = 3.14159
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="torpedo"]
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+stream_paused = false
+mix_target = 0
+bus = "Master"
+

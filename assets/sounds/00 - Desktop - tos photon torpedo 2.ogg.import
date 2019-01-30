@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/00 - Desktop - tos photon torpedo 2.ogg-f06c858e75de017deb66059101177af2.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/00 - Desktop - tos photon torpedo 2.ogg"
+dest_files=[ "res://.import/00 - Desktop - tos photon torpedo 2.ogg-f06c858e75de017deb66059101177af2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

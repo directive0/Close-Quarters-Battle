@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/00 - Desktop - tos keypress7.ogg-7e7b344c557c2b21f895d899cdd9233f.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/00 - Desktop - tos keypress7.ogg"
+dest_files=[ "res://.import/00 - Desktop - tos keypress7.ogg-7e7b344c557c2b21f895d899cdd9233f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://2pui.tscn" type="PackedScene" id=1]
+
+[node name="2pcontrol" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 249.0
+margin_top = 143.0
+margin_right = 746.0
+margin_bottom = 428.0
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="ui" parent="." instance=ExtResource( 1 )]
+playerno = 1
+

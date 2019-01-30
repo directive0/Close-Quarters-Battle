@@ -1,0 +1,545 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://network_main.gd" type="Script" id=1]
+[ext_resource path="res://topbar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://network_playfield.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui.tscn" type="PackedScene" id=4]
+[ext_resource path="res://helpful_text.tscn" type="PackedScene" id=5]
+
+[node name="main" type="Control"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+
+[node name="topbar" parent="VBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 600.0
+margin_bottom = 60.0
+
+[node name="playfield" parent="VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 64.0
+margin_right = 600.0
+margin_bottom = 664.0
+rect_min_size = Vector2( 600, 600 )
+
+[node name="cell" parent="VBoxContainer/playfield/GridContainer" index="0"]
+margin_bottom = 50.0
+
+[node name="cell2" parent="VBoxContainer/playfield/GridContainer" index="1"]
+margin_bottom = 50.0
+
+[node name="cell3" parent="VBoxContainer/playfield/GridContainer" index="2"]
+margin_bottom = 50.0
+
+[node name="cell4" parent="VBoxContainer/playfield/GridContainer" index="3"]
+margin_bottom = 50.0
+
+[node name="cell5" parent="VBoxContainer/playfield/GridContainer" index="4"]
+margin_bottom = 50.0
+
+[node name="cell6" parent="VBoxContainer/playfield/GridContainer" index="5"]
+margin_bottom = 50.0
+
+[node name="cell7" parent="VBoxContainer/playfield/GridContainer" index="6"]
+margin_bottom = 50.0
+
+[node name="cell8" parent="VBoxContainer/playfield/GridContainer" index="7"]
+margin_bottom = 50.0
+
+[node name="cell9" parent="VBoxContainer/playfield/GridContainer" index="8"]
+margin_bottom = 50.0
+
+[node name="cell10" parent="VBoxContainer/playfield/GridContainer" index="9"]
+margin_bottom = 50.0
+
+[node name="cell11" parent="VBoxContainer/playfield/GridContainer" index="10"]
+margin_bottom = 50.0
+
+[node name="cell12" parent="VBoxContainer/playfield/GridContainer" index="11"]
+margin_top = 54.0
+margin_bottom = 104.0
+
+[node name="cell13" parent="VBoxContainer/playfield/GridContainer" index="12"]
+margin_top = 54.0
+margin_bottom = 104.0
+
+[node name="cell14" parent="VBoxContainer/playfield/GridContainer" index="13"]
+margin_top = 54.0
+margin_bottom = 104.0
+
+[node name="cell15" parent="VBoxContainer/playfield/GridContainer" index="14"]
+margin_top = 54.0
+margin_bottom = 104.0
+
+[node name="cell16" parent="VBoxContainer/playfield/GridContainer" index="15"]
+margin_top = 54.0
+margin_bottom = 104.0
+
+[node name="cell17" parent="VBoxContainer/playfield/GridContainer" index="16"]
+margin_top = 54.0
+margin_bottom = 104.0
+
+[node name="cell18" parent="VBoxContainer/playfield/GridContainer" index="17"]
+margin_top = 54.0
+margin_bottom = 104.0
+
+[node name="cell19" parent="VBoxContainer/playfield/GridContainer" index="18"]
+margin_top = 54.0
+margin_bottom = 104.0
+
+[node name="cell20" parent="VBoxContainer/playfield/GridContainer" index="19"]
+margin_top = 54.0
+margin_bottom = 104.0
+
+[node name="cell21" parent="VBoxContainer/playfield/GridContainer" index="20"]
+margin_top = 54.0
+margin_bottom = 104.0
+
+[node name="cell22" parent="VBoxContainer/playfield/GridContainer" index="21"]
+margin_top = 54.0
+margin_bottom = 104.0
+
+[node name="cell23" parent="VBoxContainer/playfield/GridContainer" index="22"]
+margin_top = 108.0
+margin_bottom = 158.0
+
+[node name="cell24" parent="VBoxContainer/playfield/GridContainer" index="23"]
+margin_top = 108.0
+margin_bottom = 158.0
+
+[node name="cell25" parent="VBoxContainer/playfield/GridContainer" index="24"]
+margin_top = 108.0
+margin_bottom = 158.0
+
+[node name="cell26" parent="VBoxContainer/playfield/GridContainer" index="25"]
+margin_top = 108.0
+margin_bottom = 158.0
+
+[node name="cell27" parent="VBoxContainer/playfield/GridContainer" index="26"]
+margin_top = 108.0
+margin_bottom = 158.0
+
+[node name="cell28" parent="VBoxContainer/playfield/GridContainer" index="27"]
+margin_top = 108.0
+margin_bottom = 158.0
+
+[node name="cell29" parent="VBoxContainer/playfield/GridContainer" index="28"]
+margin_top = 108.0
+margin_bottom = 158.0
+
+[node name="cell30" parent="VBoxContainer/playfield/GridContainer" index="29"]
+margin_top = 108.0
+margin_bottom = 158.0
+
+[node name="cell31" parent="VBoxContainer/playfield/GridContainer" index="30"]
+margin_top = 108.0
+margin_bottom = 158.0
+
+[node name="cell32" parent="VBoxContainer/playfield/GridContainer" index="31"]
+margin_top = 108.0
+margin_bottom = 158.0
+
+[node name="cell33" parent="VBoxContainer/playfield/GridContainer" index="32"]
+margin_top = 108.0
+margin_bottom = 158.0
+
+[node name="cell34" parent="VBoxContainer/playfield/GridContainer" index="33"]
+margin_top = 162.0
+margin_bottom = 212.0
+
+[node name="cell35" parent="VBoxContainer/playfield/GridContainer" index="34"]
+margin_top = 162.0
+margin_bottom = 212.0
+
+[node name="cell36" parent="VBoxContainer/playfield/GridContainer" index="35"]
+margin_top = 162.0
+margin_bottom = 212.0
+
+[node name="cell37" parent="VBoxContainer/playfield/GridContainer" index="36"]
+margin_top = 162.0
+margin_bottom = 212.0
+
+[node name="cell38" parent="VBoxContainer/playfield/GridContainer" index="37"]
+margin_top = 162.0
+margin_bottom = 212.0
+
+[node name="cell39" parent="VBoxContainer/playfield/GridContainer" index="38"]
+margin_top = 162.0
+margin_bottom = 212.0
+
+[node name="cell40" parent="VBoxContainer/playfield/GridContainer" index="39"]
+margin_top = 162.0
+margin_bottom = 212.0
+
+[node name="cell41" parent="VBoxContainer/playfield/GridContainer" index="40"]
+margin_top = 162.0
+margin_bottom = 212.0
+
+[node name="cell42" parent="VBoxContainer/playfield/GridContainer" index="41"]
+margin_top = 162.0
+margin_bottom = 212.0
+
+[node name="cell43" parent="VBoxContainer/playfield/GridContainer" index="42"]
+margin_top = 162.0
+margin_bottom = 212.0
+
+[node name="cell44" parent="VBoxContainer/playfield/GridContainer" index="43"]
+margin_top = 162.0
+margin_bottom = 212.0
+
+[node name="cell45" parent="VBoxContainer/playfield/GridContainer" index="44"]
+margin_top = 216.0
+margin_bottom = 266.0
+
+[node name="cell46" parent="VBoxContainer/playfield/GridContainer" index="45"]
+margin_top = 216.0
+margin_bottom = 266.0
+
+[node name="cell47" parent="VBoxContainer/playfield/GridContainer" index="46"]
+margin_top = 216.0
+margin_bottom = 266.0
+
+[node name="cell48" parent="VBoxContainer/playfield/GridContainer" index="47"]
+margin_top = 216.0
+margin_bottom = 266.0
+
+[node name="cell49" parent="VBoxContainer/playfield/GridContainer" index="48"]
+margin_top = 216.0
+margin_bottom = 266.0
+
+[node name="cell50" parent="VBoxContainer/playfield/GridContainer" index="49"]
+margin_top = 216.0
+margin_bottom = 266.0
+
+[node name="cell51" parent="VBoxContainer/playfield/GridContainer" index="50"]
+margin_top = 216.0
+margin_bottom = 266.0
+
+[node name="cell52" parent="VBoxContainer/playfield/GridContainer" index="51"]
+margin_top = 216.0
+margin_bottom = 266.0
+
+[node name="cell53" parent="VBoxContainer/playfield/GridContainer" index="52"]
+margin_top = 216.0
+margin_bottom = 266.0
+
+[node name="cell54" parent="VBoxContainer/playfield/GridContainer" index="53"]
+margin_top = 216.0
+margin_bottom = 266.0
+
+[node name="cell55" parent="VBoxContainer/playfield/GridContainer" index="54"]
+margin_top = 216.0
+margin_bottom = 266.0
+
+[node name="cell56" parent="VBoxContainer/playfield/GridContainer" index="55"]
+margin_top = 270.0
+margin_bottom = 320.0
+
+[node name="cell57" parent="VBoxContainer/playfield/GridContainer" index="56"]
+margin_top = 270.0
+margin_bottom = 320.0
+
+[node name="cell58" parent="VBoxContainer/playfield/GridContainer" index="57"]
+margin_top = 270.0
+margin_bottom = 320.0
+
+[node name="cell59" parent="VBoxContainer/playfield/GridContainer" index="58"]
+margin_top = 270.0
+margin_bottom = 320.0
+
+[node name="cell60" parent="VBoxContainer/playfield/GridContainer" index="59"]
+margin_top = 270.0
+margin_bottom = 320.0
+
+[node name="cell61" parent="VBoxContainer/playfield/GridContainer" index="60"]
+margin_top = 270.0
+margin_bottom = 320.0
+
+[node name="cell62" parent="VBoxContainer/playfield/GridContainer" index="61"]
+margin_top = 270.0
+margin_bottom = 320.0
+
+[node name="cell63" parent="VBoxContainer/playfield/GridContainer" index="62"]
+margin_top = 270.0
+margin_bottom = 320.0
+
+[node name="cell64" parent="VBoxContainer/playfield/GridContainer" index="63"]
+margin_top = 270.0
+margin_bottom = 320.0
+
+[node name="cell65" parent="VBoxContainer/playfield/GridContainer" index="64"]
+margin_top = 270.0
+margin_bottom = 320.0
+
+[node name="cell66" parent="VBoxContainer/playfield/GridContainer" index="65"]
+margin_top = 270.0
+margin_bottom = 320.0
+
+[node name="cell67" parent="VBoxContainer/playfield/GridContainer" index="66"]
+margin_top = 324.0
+margin_bottom = 374.0
+
+[node name="cell68" parent="VBoxContainer/playfield/GridContainer" index="67"]
+margin_top = 324.0
+margin_bottom = 374.0
+
+[node name="cell69" parent="VBoxContainer/playfield/GridContainer" index="68"]
+margin_top = 324.0
+margin_bottom = 374.0
+
+[node name="cell70" parent="VBoxContainer/playfield/GridContainer" index="69"]
+margin_top = 324.0
+margin_bottom = 374.0
+
+[node name="cell71" parent="VBoxContainer/playfield/GridContainer" index="70"]
+margin_top = 324.0
+margin_bottom = 374.0
+
+[node name="cell72" parent="VBoxContainer/playfield/GridContainer" index="71"]
+margin_top = 324.0
+margin_bottom = 374.0
+
+[node name="cell73" parent="VBoxContainer/playfield/GridContainer" index="72"]
+margin_top = 324.0
+margin_bottom = 374.0
+
+[node name="cell74" parent="VBoxContainer/playfield/GridContainer" index="73"]
+margin_top = 324.0
+margin_bottom = 374.0
+
+[node name="cell75" parent="VBoxContainer/playfield/GridContainer" index="74"]
+margin_top = 324.0
+margin_bottom = 374.0
+
+[node name="cell76" parent="VBoxContainer/playfield/GridContainer" index="75"]
+margin_top = 324.0
+margin_bottom = 374.0
+
+[node name="cell77" parent="VBoxContainer/playfield/GridContainer" index="76"]
+margin_top = 324.0
+margin_bottom = 374.0
+
+[node name="cell78" parent="VBoxContainer/playfield/GridContainer" index="77"]
+margin_top = 378.0
+margin_bottom = 428.0
+
+[node name="cell79" parent="VBoxContainer/playfield/GridContainer" index="78"]
+margin_top = 378.0
+margin_bottom = 428.0
+
+[node name="cell80" parent="VBoxContainer/playfield/GridContainer" index="79"]
+margin_top = 378.0
+margin_bottom = 428.0
+
+[node name="cell81" parent="VBoxContainer/playfield/GridContainer" index="80"]
+margin_top = 378.0
+margin_bottom = 428.0
+
+[node name="cell82" parent="VBoxContainer/playfield/GridContainer" index="81"]
+margin_top = 378.0
+margin_bottom = 428.0
+
+[node name="cell83" parent="VBoxContainer/playfield/GridContainer" index="82"]
+margin_top = 378.0
+margin_bottom = 428.0
+
+[node name="cell84" parent="VBoxContainer/playfield/GridContainer" index="83"]
+margin_top = 378.0
+margin_bottom = 428.0
+
+[node name="cell85" parent="VBoxContainer/playfield/GridContainer" index="84"]
+margin_top = 378.0
+margin_bottom = 428.0
+
+[node name="cell86" parent="VBoxContainer/playfield/GridContainer" index="85"]
+margin_top = 378.0
+margin_bottom = 428.0
+
+[node name="cell87" parent="VBoxContainer/playfield/GridContainer" index="86"]
+margin_top = 378.0
+margin_bottom = 428.0
+
+[node name="cell88" parent="VBoxContainer/playfield/GridContainer" index="87"]
+margin_top = 378.0
+margin_bottom = 428.0
+
+[node name="cell89" parent="VBoxContainer/playfield/GridContainer" index="88"]
+margin_top = 432.0
+margin_bottom = 482.0
+
+[node name="cell90" parent="VBoxContainer/playfield/GridContainer" index="89"]
+margin_top = 432.0
+margin_bottom = 482.0
+
+[node name="cell91" parent="VBoxContainer/playfield/GridContainer" index="90"]
+margin_top = 432.0
+margin_bottom = 482.0
+
+[node name="cell92" parent="VBoxContainer/playfield/GridContainer" index="91"]
+margin_top = 432.0
+margin_bottom = 482.0
+
+[node name="cell93" parent="VBoxContainer/playfield/GridContainer" index="92"]
+margin_top = 432.0
+margin_bottom = 482.0
+
+[node name="cell94" parent="VBoxContainer/playfield/GridContainer" index="93"]
+margin_top = 432.0
+margin_bottom = 482.0
+
+[node name="cell95" parent="VBoxContainer/playfield/GridContainer" index="94"]
+margin_top = 432.0
+margin_bottom = 482.0
+
+[node name="cell96" parent="VBoxContainer/playfield/GridContainer" index="95"]
+margin_top = 432.0
+margin_bottom = 482.0
+
+[node name="cell97" parent="VBoxContainer/playfield/GridContainer" index="96"]
+margin_top = 432.0
+margin_bottom = 482.0
+
+[node name="cell98" parent="VBoxContainer/playfield/GridContainer" index="97"]
+margin_top = 432.0
+margin_bottom = 482.0
+
+[node name="cell99" parent="VBoxContainer/playfield/GridContainer" index="98"]
+margin_top = 432.0
+margin_bottom = 482.0
+
+[node name="cell100" parent="VBoxContainer/playfield/GridContainer" index="99"]
+margin_top = 486.0
+margin_bottom = 536.0
+
+[node name="cell101" parent="VBoxContainer/playfield/GridContainer" index="100"]
+margin_top = 486.0
+margin_bottom = 536.0
+
+[node name="cell102" parent="VBoxContainer/playfield/GridContainer" index="101"]
+margin_top = 486.0
+margin_bottom = 536.0
+
+[node name="cell103" parent="VBoxContainer/playfield/GridContainer" index="102"]
+margin_top = 486.0
+margin_bottom = 536.0
+
+[node name="cell104" parent="VBoxContainer/playfield/GridContainer" index="103"]
+margin_top = 486.0
+margin_bottom = 536.0
+
+[node name="cell105" parent="VBoxContainer/playfield/GridContainer" index="104"]
+margin_top = 486.0
+margin_bottom = 536.0
+
+[node name="cell106" parent="VBoxContainer/playfield/GridContainer" index="105"]
+margin_top = 486.0
+margin_bottom = 536.0
+
+[node name="cell107" parent="VBoxContainer/playfield/GridContainer" index="106"]
+margin_top = 486.0
+margin_bottom = 536.0
+
+[node name="cell108" parent="VBoxContainer/playfield/GridContainer" index="107"]
+margin_top = 486.0
+margin_bottom = 536.0
+
+[node name="cell109" parent="VBoxContainer/playfield/GridContainer" index="108"]
+margin_top = 486.0
+margin_bottom = 536.0
+
+[node name="cell110" parent="VBoxContainer/playfield/GridContainer" index="109"]
+margin_top = 486.0
+margin_bottom = 536.0
+
+[node name="cell111" parent="VBoxContainer/playfield/GridContainer" index="110"]
+margin_top = 540.0
+margin_bottom = 590.0
+
+[node name="cell112" parent="VBoxContainer/playfield/GridContainer" index="111"]
+margin_top = 540.0
+margin_bottom = 590.0
+
+[node name="cell113" parent="VBoxContainer/playfield/GridContainer" index="112"]
+margin_top = 540.0
+margin_bottom = 590.0
+
+[node name="cell114" parent="VBoxContainer/playfield/GridContainer" index="113"]
+margin_top = 540.0
+margin_bottom = 590.0
+
+[node name="cell115" parent="VBoxContainer/playfield/GridContainer" index="114"]
+margin_top = 540.0
+margin_bottom = 590.0
+
+[node name="cell116" parent="VBoxContainer/playfield/GridContainer" index="115"]
+margin_top = 540.0
+margin_bottom = 590.0
+
+[node name="cell117" parent="VBoxContainer/playfield/GridContainer" index="116"]
+margin_top = 540.0
+margin_bottom = 590.0
+
+[node name="cell118" parent="VBoxContainer/playfield/GridContainer" index="117"]
+margin_top = 540.0
+margin_bottom = 590.0
+
+[node name="cell119" parent="VBoxContainer/playfield/GridContainer" index="118"]
+margin_top = 540.0
+margin_bottom = 590.0
+
+[node name="cell120" parent="VBoxContainer/playfield/GridContainer" index="119"]
+margin_top = 540.0
+margin_bottom = 590.0
+
+[node name="cell121" parent="VBoxContainer/playfield/GridContainer" index="120"]
+margin_top = 540.0
+margin_bottom = 590.0
+
+[node name="ui" parent="VBoxContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 668.0
+margin_right = 600.0
+margin_bottom = 1024.0
+
+[node name="level_timer" type="Timer" parent="." groups=[
+"level_timer",
+]]
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[node name="Control" parent="." instance=ExtResource( 5 )]
+visible = false
+margin_top = 100.0
+margin_bottom = 100.0
+
+[connection signal="ready" from="VBoxContainer/playfield" to="." method="_on_playfield_ready"]
+[connection signal="timeout" from="level_timer" to="." method="_on_level_timer_timeout"]
+
+[editable path="VBoxContainer/playfield"]

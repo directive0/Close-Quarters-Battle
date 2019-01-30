@@ -1,0 +1,108 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/main_font_small.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fire_reticule.png" type="Texture" id=2]
+
+[node name="torpedo_counter" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="label_bar" type="ColorRect" parent="VBoxContainer"]
+editor/display_folded = true
+margin_right = 608.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 25 )
+size_flags_vertical = 5
+color = Color( 0.305882, 0.305882, 0.305882, 1 )
+
+[node name="Label" type="Label" parent="VBoxContainer/label_bar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "TORPEDOES REMAINING"
+align = 1
+valign = 1
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+margin_top = 29.0
+margin_right = 608.0
+margin_bottom = 1024.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 10
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/GridContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+texture = ExtResource( 2 )
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/GridContainer"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+texture = ExtResource( 2 )
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/GridContainer"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+texture = ExtResource( 2 )
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/GridContainer"]
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+texture = ExtResource( 2 )
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="VBoxContainer/GridContainer"]
+margin_left = 272.0
+margin_right = 336.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+texture = ExtResource( 2 )
+stretch_mode = 5
+
+[node name="TextureRect6" type="TextureRect" parent="VBoxContainer/GridContainer"]
+margin_left = 340.0
+margin_right = 404.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+texture = ExtResource( 2 )
+stretch_mode = 5
+
+[node name="TextureRect7" type="TextureRect" parent="VBoxContainer/GridContainer"]
+margin_left = 408.0
+margin_right = 472.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+texture = ExtResource( 2 )
+stretch_mode = 5
+
+[node name="TextureRect8" type="TextureRect" parent="VBoxContainer/GridContainer"]
+margin_left = 476.0
+margin_right = 540.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+texture = ExtResource( 2 )
+stretch_mode = 5
+
+[node name="TextureRect9" type="TextureRect" parent="VBoxContainer/GridContainer"]
+margin_left = 544.0
+margin_right = 608.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+texture = ExtResource( 2 )
+stretch_mode = 5
+
