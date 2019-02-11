@@ -1,5 +1,5 @@
 extends Control
-
+var menu = load("res://menu.tscn")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -14,6 +14,9 @@ func _ready():
 
 
 func _on_Button_pressed():
-	if globals.state == "start":
-		globals.state = "init"
+	get_parent().get_parent().add_child(menu.instance())
+	#if globals.state == "start":
+		#globals.state = "init"
+		
+	
 	pass # Replace with function body.

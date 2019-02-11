@@ -37,7 +37,7 @@ func cell_assign():
 func find_center():
 	var center = Vector2(get_size().x/2,get_size().y/2)
 	$Position2D.set_position(center)
-
+	
 
 #func clear_all():
 #	var children = $reticule_holder.get_children()
@@ -73,7 +73,7 @@ func _on_TextureButton_pressed():
 		$AudioStreamPlayer2.play()
 		player = get_tree().get_nodes_in_group("p1")[0]
 		globals.note_text = "Target set"
-		player.fire_at(position)
+		player.fire_at(self)
 		globals.state = "idle"
 
 	
@@ -81,7 +81,7 @@ func _on_TextureButton_pressed():
 		$AudioStreamPlayer2.play()
 		player = get_tree().get_nodes_in_group("p2")[0]
 		globals.note_text = "Target set"
-		player.fire_at(position)
+		player.fire_at(self)
 		globals.state = "idle"
 
 
@@ -98,6 +98,7 @@ func _on_TextureButton_pressed():
 		#reticule.set_size(get_size())
 		globals.clear_course()
 		$reticule_holder.add_child(reticule)
+		globals.state = "idle"
 
 	if globals.state == "set_target":
 		$AudioStreamPlayer2.play()
@@ -111,3 +112,5 @@ func _on_TextureButton_pressed():
 		#reticule.set_size(get_size())
 		globals.clear_target()
 		$reticule_holder.add_child(reticule)
+		globals.state = "idle"
+		

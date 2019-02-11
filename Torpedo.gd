@@ -28,18 +28,19 @@ func _ready():
 	rotate_to_target()
 	
 
-func setup(owner,origin,target):
-	firer = owner
+func setup(fired,origin,target):
+	set_as_toplevel(true)
+	firer = fired
 	#var adjust_origin = Vector2(origin.x + (globals.cellsize / 2), origin.y + (globals.cellsize / 2))
 	#var adjust_target = Vector2(target.x + (globals.cellsize / 2), target.y + (globals.cellsize / 2))
-	set_as_toplevel(true)
-	lastloc = origin.get_node("Position2D").get_global_transform().origin
-	print(target)
-	newloc = target.get_node("Position2D").get_global_transform().origin
 	
-	var now = get_global_transform()
-	now.origin = lastloc
-	#set_global_transform(now)
+	lastloc = firer.get_node("Sprite").get_global_position()
+	print(target)
+	newloc = target.get_node("Position2D").get_global_position()
+	print("torpedo added: ", target, origin, fired)
+	
+
+	set_global_position(lastloc)
 
 func rotate_to_target():
 	var angle = get_global_position().angle_to_point(newloc)
@@ -49,6 +50,7 @@ func rotate_to_target():
 	angle_to_target = -Vector2(cos(angle), sin(angle))
 
 func move_forward(delta):
+	#set_as_toplevel(true)
 	var frame = t.get_time_left() / t.get_wait_time() 
 	frame = 1 - frame
 	if frame >= 1:
@@ -64,6 +66,7 @@ func move_forward(delta):
 
 
 func move(delta):
+	#set_as_toplevel(true)
 	var frame = t.get_time_left() / t.get_wait_time() 
 	frame = 1 - frame
 	if frame >= 1:
@@ -86,16 +89,25 @@ func _process(delta):
 	#move(delta)
 	move_forward(delta)
 
+func impact():
+	$splode.play()
+	if has_node("Node2D"):
+		$Node2D.queue_free()
+
 func hit(damage):
-	queue_free()
-	
+	impact()
+
 func _on_Area2D_area_entered(area):
 	if area == firer.get_node("Sprite/hit_box"):
 		pass
 	else:
 		print("torpedo hit!")
-		area.hit(100)
-		queue_free()
+		if firer.sensor == 2:
+			area.hit(100)
+			firer.sensor = 0
+		else:
+			area.hit(50)
+		impact()
 
 #func _on_Area2D_area_shape_entered(area_id, area, area_shape, self_shape):
 #	if frame < 0.9:
@@ -103,3 +115,8 @@ func _on_Area2D_area_entered(area):
 #		area.hit(50)
 #		queue_free()
 	#pass # Replace with function body.
+
+
+func _on_splode_finished():
+	queue_free()
+	pass # Replace with function body.

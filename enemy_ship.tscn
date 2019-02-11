@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/ships/enemy_ship.gd" type="Script" id=1]
 [ext_resource path="res://assets/ships/ship1.png" type="Texture" id=2]
-[ext_resource path="res://enemy_hit_box.gd" type="Script" id=3]
-[ext_resource path="res://hud_overlay.gd" type="Script" id=4]
+[ext_resource path="res://assets/ships/d7.png" type="Texture" id=3]
+[ext_resource path="res://enemy_hit_box.gd" type="Script" id=4]
+[ext_resource path="res://hud_overlay.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-extents = Vector2( 121, 51 )
+extents = Vector2( 107.598, 78.2151 )
 
 [node name="enemy_ship" type="Control" groups=[
 "enemy",
@@ -39,12 +40,13 @@ expand = true
 [node name="weaponpoint" type="Position2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 1, 0, 0, 1 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="hit_box" type="Area2D" parent="Sprite"]
-script = ExtResource( 3 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/hit_box"]
 shape = SubResource( 1 )
@@ -58,5 +60,5 @@ margin_top = 17.0
 margin_right = 80.0
 margin_bottom = 31.0
 text = "shield 100"
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 

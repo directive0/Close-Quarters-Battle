@@ -1,8 +1,7 @@
 extends "res://assets/ships/player_ship_control.gd"
 
-func _ready():
-	start_cell = 120
-
+#if set to "true" the enemy will ALWAYS shoot, and will ALWAYS choose torpedoes (I needed this to fix a bug with torpedoes)
+var testing = false
 
 func _process(delta):
 	
@@ -11,18 +10,25 @@ func _process(delta):
 			jump_to(find_start())
 			#globals.state = "idle"
 	
-	#if globals.state == "idle":
-	if not courset:
-			random_move()
+	# every time 
+	if globals.state == "idle":
+		if not courset:
+				random_move()
+		if courset:
+				if revealed == true:
+					print("revealed met")
+					reveal()
+					revealed = false
 
 	if globals.state == "move":
 		
+		# if a move has been selected move to it
 		if courset:
 			move(delta)
 
+		# if a weapon and target have been selected fire them.
 		if chambered:
-			randomize()
-			var decider = randi() % 2      # returns random number between 0 and 19
+
 			if decider == 0:
 				fire_p_beam()
 			elif decider == 1:
@@ -32,6 +38,9 @@ func _process(delta):
 			chambered = false
 			
 func hit(damage):
+	
+	if criticaled:
+		damage = damage * 2
 		
 	var this_splode = explosion.instance()
 	
@@ -45,6 +54,9 @@ func hit(damage):
 		globals.note_text = "Enemy shields damaged! " + str(stats["shield"]) + "% remaining!"
 		if stats["shield"] <= 0:
 			globals.note_text = "Enemy shields down!"
+			if stats["shield"] < 0:
+				stats["hull"] + stats["shield"]
+				stats["shield"] = 0
 	
 
 func damage_report():
@@ -56,14 +68,23 @@ func damage_report():
 func random_move():
 	randomize()
 	var firing = randi()% 2
+	if testing == true:
+		firing = 1
 	
 	print("firing =", firing)
 	
 	var moving = randi()% 2
 	
+	randomize()
+	decider = randi() % 2      # returns random number between 0 and 19
+	if testing == true:
+		decider = 1
+	
 	if moving == 1:
 		var next_move = randi()% 121
 		var next_move_coordinate = grid[next_move].get_node("Position2D").get_global_position()
+		last_cell = current_cell
+		current_cell = grid[next_move]
 		move_to(next_move_coordinate)
 	
 	if firing == 1:

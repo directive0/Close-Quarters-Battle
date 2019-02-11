@@ -1,7 +1,11 @@
 extends Control
 var player_ship = load("res://player_ship_control.tscn")
-var enemy_ship = load("res://enemy_ship.tscn")
+
+#var enemy_ship = load("res://enemy_ship.tscn")
+var enemy_ship_rom = load("res://bop.tscn")
+var enemy_ship_kling = load("res://enemy_ship.tscn")
 var ship_space
+
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -27,11 +31,19 @@ func _on_GridContainer_ready():
 # add the ships to their starting positions
 func add_ships():
 	ship_space = get_tree().get_nodes_in_group("ship_space")[0]
-	print("playfield ready")
+	#print("playfield ready")
 	var new_player = player_ship.instance()
-	var new_enemy = enemy_ship.instance()
+	for i in range(globals.opponents):
+		var new_enemy
+		if globals.species == 0:
+			new_enemy = enemy_ship_kling.instance()
+		if globals.species == 1:
+			new_enemy = enemy_ship_rom.instance()
+		new_enemy.start_cell = globals.starts[i]
+		ship_space.add_child(new_enemy)
+		new_enemy.place()
+		
 	ship_space.add_child(new_player)
-	ship_space.add_child(new_enemy)
 	new_player.place()
-	new_enemy.place()
+
 	globals.state = "idle"

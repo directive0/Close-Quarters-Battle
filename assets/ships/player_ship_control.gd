@@ -7,6 +7,8 @@ var newloc
 var current_cell
 var last_cell
 
+var primed = false
+
 var current_target
 var last_target
 
@@ -21,11 +23,15 @@ var timer
 # sets whether a move or target has been decided
 var courset = false
 var chambered = false
+var decider
 
 
 var weapon_away = false
 var torpedo = load("res://torpedo.tscn")
+var reveal_line = load("res://sensordata.tscn")
+#var torpedo = load("res://test.tscn")
 var p_beam = load("res://phaser.tscn")
+var scanner = load("res://scan.tscn")
 
 var init = false
 
@@ -35,6 +41,10 @@ var angle = 0
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var sensor = 0
+var revealed = false
+var criticaled = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,7 +54,7 @@ func _ready():
 	
 	# load our grid
 	grid = get_tree().get_nodes_in_group("grid")[0].get_children()
-
+	last_cell = grid[start_cell]
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -68,6 +78,8 @@ func _process(delta):
 				fire_p_beam()#fire_torpedo()
 			if globals.chambered == 1:
 				fire_torpedo()
+			if globals.chambered == 2:
+				scan()
 			chambered = false
 #	pass
 func place():
@@ -75,6 +87,9 @@ func place():
 
 
 func hit(damage):
+	
+	if criticaled:
+		damage = damage * 2
 	
 	var this_splode = explosion.instance()
 	
@@ -119,17 +134,19 @@ func point():
 func move_to(destination):
 	newloc = destination
 	lastloc = get_global_position()
-	globals.state = "idle"
 	courset = true
 
 func fire_torpedo():
 	var this_torp = torpedo.instance()
 	print("firing torp at: ", get_global_position())
-	this_torp.setup(self,current_cell,current_target)
+	#this_torp.set_global_position(get_global_position())
+	this_torp.setup(self,last_cell,current_target)
 	
 	#var substrate = get_tree().get_nodes_in_group("ship_space")[0]
-	var substrate = current_cell.get_node("Position2D")
-	this_torp.set_global_position($Sprite.get_global_position())
+	var substrate = get_node("Sprite")
+	#var substrate = last_cell
+	#this_torp.set_global_position(last_cell.get_node("Position2D").get_global_position())
+
 	substrate.add_child(this_torp)
 	#substrate.add_child(this_torp)
 
@@ -140,18 +157,44 @@ func fire_p_beam():
 	#var substrate = get_tree().get_nodes_in_group("ship_space")[0]
 	$weaponpoint.add_child(this_beam)
 
+func scan():
+	var this_beam = scanner.instance()
+	this_beam.setup(self,last_cell,current_target)
+	print("scanning", get_global_position())
+	randomize()
+	var crit = randi()% 2
+	if crit == 0:
+		pass
+	else:
+		primed = true
+	#this_beam.setup(self,current_target)
+	#var substrate = get_tree().get_nodes_in_group("ship_space")[0]
+	$weaponpoint.add_child(this_beam)
 
 func fire_at(target, weapon = 1):
 	current_target = target
-	globals.state = "idle"
+	#globals.state = "idle"
 	chambered = true
 
 
 func reset():
+	last_cell = current_cell
 	courset = false
 	chambered = false
 	print("move done")
+	#if sensor == 1:
+		
 
+func reveal():
+	var this_reveal = reveal_line.instance()
+	this_reveal.setup(self)
+	
+	#var substrate = get_tree().get_nodes_in_group("ship_space")[0]
+	var substrate = get_node("Sprite")
+	#var substrate = last_cell
+	#this_torp.set_global_position(last_cell.get_node("Position2D").get_global_position())
+
+	substrate.add_child(this_reveal)
 
 func move(delta):
 	point()

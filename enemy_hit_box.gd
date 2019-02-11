@@ -6,11 +6,11 @@ var enemy
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	enemy = get_tree().get_nodes_in_group("enemy")[0]
+	#enemy = get_tree().get_nodes_in_group("enemy")[0]
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 func hit(damage = 20):
-	enemy.hit(damage)
+	get_parent().get_parent().hit(damage)

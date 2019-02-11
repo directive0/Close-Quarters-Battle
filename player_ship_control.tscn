@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/ships/player_ship_control.gd" type="Script" id=1]
 [ext_resource path="res://assets/ships/ship1.png" type="Texture" id=2]
 [ext_resource path="res://weaponpoint.gd" type="Script" id=3]
-[ext_resource path="res://ship_hit_box.gd" type="Script" id=4]
-[ext_resource path="res://assets/torpedoes/torp.png" type="Texture" id=5]
+[ext_resource path="res://assets/ships/connie.png" type="Texture" id=4]
+[ext_resource path="res://ship_hit_box.gd" type="Script" id=5]
+[ext_resource path="res://assets/torpedoes/torp.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -42,29 +43,31 @@ script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 
 [node name="Position2D" type="Position2D" parent="Sprite"]
 position = Vector2( 81.1185, 0 )
 
 [node name="hit_box" type="Area2D" parent="Sprite"]
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/hit_box"]
 visible = false
 shape = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="Sprite"]
+visible = false
 position = Vector2( 17.5009, -42.4952 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 texture_scale = 0.31
 color = Color( 1, 0, 0, 1 )
 
 [node name="Light2D2" type="Light2D" parent="Sprite"]
+visible = false
 position = Vector2( 17.5009, 42.495 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 texture_scale = 0.31
 color = Color( 1, 0, 0, 1 )
 

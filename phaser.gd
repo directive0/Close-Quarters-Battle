@@ -45,8 +45,12 @@ func check_collision():
 		set_points(points)
 		
 		var object = $RayCast2D.get_collider()
-		#print(object)
-		object.hit(1)
+		print(object)
+		if object != null:
+			if ship.sensor == 2:
+				object.hit(2)
+			else:
+				object.hit(1)
 		
 	else:
 		var points = get_points()

@@ -1,15 +1,22 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://splashspin.gd" type="Script" id=1]
 [ext_resource path="res://assets/Omega_Nebula.jpg" type="Texture" id=2]
-[ext_resource path="res://assets/icon.png" type="Texture" id=3]
-[ext_resource path="res://assets/main_font_large.tres" type="DynamicFont" id=4]
-[ext_resource path="res://assets/main_font_small.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/ships/connie.png" type="Texture" id=3]
+[ext_resource path="res://assets/ships/kelvin.png" type="Texture" id=4]
+[ext_resource path="res://assets/ships/miranda.png" type="Texture" id=5]
+[ext_resource path="res://assets/ships/d7.png" type="Texture" id=6]
+[ext_resource path="res://assets/ships/bop.png" type="Texture" id=7]
+[ext_resource path="res://assets/icon.png" type="Texture" id=8]
+[ext_resource path="res://assets/main_font_large.tres" type="DynamicFont" id=9]
+[ext_resource path="res://assets/main_font_small.tres" type="DynamicFont" id=10]
+[ext_resource path="res://version.gd" type="Script" id=11]
+[ext_resource path="res://assets/main_font_tiny.tres" type="DynamicFont" id=12]
 
 [sub_resource type="GDScript" id=1]
 
 script/source = "extends Control
-
+var aboutpage = load(\"res://about.tscn\")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = \"text\"
@@ -31,8 +38,32 @@ func _on_Button2_pressed():
 
 func _on_Button_pressed():
 	#globals.mode = \"1p\"
-	get_tree().change_scene(\"res://main.tscn\")
+	get_tree().change_scene(\"res://gamesetup.tscn\")
 
+
+
+func _on_Button3_pressed():
+	var thisabout = aboutpage.instance()
+	add_child(thisabout)
+	pass # Replace with function body.
+"
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends Label
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	set_text(globals.version2)
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
 "
 
 [node name="choice_page" type="Control"]
@@ -41,6 +72,7 @@ anchor_bottom = 1.0
 script = SubResource( 1 )
 
 [node name="Control" type="Control" parent="."]
+editor/display_folded = true
 margin_left = -498.0
 margin_top = -260.0
 margin_right = -458.0
@@ -49,73 +81,797 @@ rect_rotation = 1080.0
 script = ExtResource( 1 )
 
 [node name="Omega_Nebula" type="Sprite" parent="Control"]
-modulate = Color( 0.411765, 0.682353, 1, 1 )
+modulate = Color( 0.827451, 0.411765, 1, 0.494118 )
 position = Vector2( 35.6827, 147.216 )
 scale = Vector2( 1.94098, 1.94098 )
 texture = ExtResource( 2 )
 
-[node name="icon" type="Sprite" parent="."]
-position = Vector2( 128.638, 128.638 )
-scale = Vector2( 0.571208, 0.571208 )
+[node name="connie" type="Sprite" parent="Control"]
+position = Vector2( 696.702, -250.911 )
 texture = ExtResource( 3 )
-centered = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="connie4" type="Sprite" parent="Control"]
+position = Vector2( -599.269, -177.896 )
+texture = ExtResource( 3 )
+
+[node name="connie8" type="Sprite" parent="Control"]
+position = Vector2( -576.714, -1170.33 )
+texture = ExtResource( 3 )
+
+[node name="connie10" type="Sprite" parent="Control"]
+position = Vector2( -630.847, 710.785 )
+texture = ExtResource( 3 )
+
+[node name="connie14" type="Sprite" parent="Control"]
+position = Vector2( -1848.84, -10.9861 )
+texture = ExtResource( 3 )
+
+[node name="connie17" type="Sprite" parent="Control"]
+position = Vector2( -1772.15, 891.228 )
+texture = ExtResource( 3 )
+
+[node name="connie21" type="Sprite" parent="Control"]
+position = Vector2( -1907.48, -1057.55 )
+texture = ExtResource( 3 )
+
+[node name="connie23" type="Sprite" parent="Control"]
+position = Vector2( 767.584, -1165.82 )
+texture = ExtResource( 3 )
+
+[node name="connie26" type="Sprite" parent="Control"]
+position = Vector2( 1365.1, 510.791 )
+texture = ExtResource( 3 )
+
+[node name="connie2" type="Sprite" parent="Control"]
+position = Vector2( 959.566, -43.3081 )
+rotation = -1.87436
+texture = ExtResource( 3 )
+
+[node name="connie5" type="Sprite" parent="Control"]
+position = Vector2( 371.291, -1008.8 )
+rotation = -1.87436
+texture = ExtResource( 3 )
+
+[node name="connie7" type="Sprite" parent="Control"]
+position = Vector2( -184.034, -855.946 )
+rotation = -1.87436
+texture = ExtResource( 3 )
+
+[node name="connie11" type="Sprite" parent="Control"]
+position = Vector2( -238.167, 1025.17 )
+rotation = -1.87436
+texture = ExtResource( 3 )
+
+[node name="connie15" type="Sprite" parent="Control"]
+position = Vector2( -1456.16, 303.399 )
+rotation = -1.87436
+texture = ExtResource( 3 )
+
+[node name="connie18" type="Sprite" parent="Control"]
+position = Vector2( -1379.47, 1205.61 )
+rotation = -1.87436
+texture = ExtResource( 3 )
+
+[node name="connie20" type="Sprite" parent="Control"]
+position = Vector2( -1514.8, -743.169 )
+rotation = -1.87436
+texture = ExtResource( 3 )
+
+[node name="connie22" type="Sprite" parent="Control"]
+position = Vector2( 1160.26, -851.434 )
+rotation = -1.87436
+texture = ExtResource( 3 )
+
+[node name="connie25" type="Sprite" parent="Control"]
+position = Vector2( 1579.81, -148.428 )
+rotation = -1.87436
+texture = ExtResource( 3 )
+
+[node name="connie3" type="Sprite" parent="Control"]
+position = Vector2( 1297.43, -280.351 )
+rotation = -2.53324
+texture = ExtResource( 3 )
+
+[node name="connie6" type="Sprite" parent="Control"]
+position = Vector2( 1.46191, -207.335 )
+rotation = -2.53324
+texture = ExtResource( 3 )
+
+[node name="connie9" type="Sprite" parent="Control"]
+position = Vector2( 24.0171, -1199.77 )
+rotation = -2.53324
+texture = ExtResource( 3 )
+
+[node name="connie12" type="Sprite" parent="Control"]
+position = Vector2( -30.1157, 681.346 )
+rotation = -2.53324
+texture = ExtResource( 3 )
+
+[node name="connie13" type="Sprite" parent="Control"]
+position = Vector2( -1248.1, -40.4253 )
+rotation = -2.53324
+texture = ExtResource( 3 )
+
+[node name="connie16" type="Sprite" parent="Control"]
+position = Vector2( -1171.42, 861.789 )
+rotation = -2.53324
+texture = ExtResource( 3 )
+
+[node name="connie19" type="Sprite" parent="Control"]
+position = Vector2( -1306.75, -1086.99 )
+rotation = -2.53324
+texture = ExtResource( 3 )
+
+[node name="connie24" type="Sprite" parent="Control"]
+position = Vector2( 752.752, -655.068 )
+rotation = -2.53324
+texture = ExtResource( 3 )
+
+[node name="connie27" type="Sprite" parent="Control"]
+position = Vector2( 1779.49, 324.319 )
+rotation = -2.53324
+texture = ExtResource( 3 )
+
+[node name="kelvin" type="Sprite" parent="Control"]
+position = Vector2( -1446.73, -219.725 )
+texture = ExtResource( 4 )
+
+[node name="kelvin4" type="Sprite" parent="Control"]
+position = Vector2( -2742.7, -146.709 )
+texture = ExtResource( 4 )
+
+[node name="kelvin5" type="Sprite" parent="Control"]
+position = Vector2( -2720.15, -1139.14 )
+texture = ExtResource( 4 )
+
+[node name="kelvin8" type="Sprite" parent="Control"]
+position = Vector2( -2774.28, 741.971 )
+texture = ExtResource( 4 )
+
+[node name="kelvin10" type="Sprite" parent="Control"]
+position = Vector2( -3992.27, 20.2005 )
+texture = ExtResource( 4 )
+
+[node name="kelvin12" type="Sprite" parent="Control"]
+position = Vector2( -3915.58, 922.414 )
+texture = ExtResource( 4 )
+
+[node name="kelvin14" type="Sprite" parent="Control"]
+position = Vector2( -4050.92, -1026.37 )
+texture = ExtResource( 4 )
+
+[node name="kelvin16" type="Sprite" parent="Control"]
+position = Vector2( -1375.85, -1134.63 )
+texture = ExtResource( 4 )
+
+[node name="kelvin18" type="Sprite" parent="Control"]
+position = Vector2( -401.46, 872.792 )
+texture = ExtResource( 4 )
+
+[node name="kelvin2" type="Sprite" parent="Control"]
+position = Vector2( 849.003, 153.318 )
+texture = ExtResource( 4 )
+
+[node name="kelvin3" type="Sprite" parent="Control"]
+position = Vector2( -446.968, 226.333 )
+texture = ExtResource( 4 )
+
+[node name="kelvin6" type="Sprite" parent="Control"]
+position = Vector2( -424.413, -766.102 )
+texture = ExtResource( 4 )
+
+[node name="kelvin7" type="Sprite" parent="Control"]
+position = Vector2( -478.546, 1115.01 )
+texture = ExtResource( 4 )
+
+[node name="kelvin9" type="Sprite" parent="Control"]
+position = Vector2( -1696.53, 393.243 )
+texture = ExtResource( 4 )
+
+[node name="kelvin11" type="Sprite" parent="Control"]
+position = Vector2( -1619.85, 1295.46 )
+texture = ExtResource( 4 )
+
+[node name="kelvin13" type="Sprite" parent="Control"]
+position = Vector2( -1755.18, -653.325 )
+texture = ExtResource( 4 )
+
+[node name="kelvin15" type="Sprite" parent="Control"]
+position = Vector2( 1018.29, -610.84 )
+texture = ExtResource( 4 )
+
+[node name="kelvin17" type="Sprite" parent="Control"]
+position = Vector2( 219.264, -8.33765 )
+texture = ExtResource( 4 )
+
+[node name="miranda" type="Sprite" parent="Control"]
+position = Vector2( 1358.52, -32.9943 )
+rotation = -5.09069
+texture = ExtResource( 5 )
+
+[node name="miranda5" type="Sprite" parent="Control"]
+position = Vector2( -186.61, -100.262 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda8" type="Sprite" parent="Control"]
+position = Vector2( -164.055, -1092.7 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda12" type="Sprite" parent="Control"]
+position = Vector2( -218.188, 788.419 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda13" type="Sprite" parent="Control"]
+position = Vector2( -1436.18, 66.6479 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda16" type="Sprite" parent="Control"]
+position = Vector2( -1359.49, 968.862 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda19" type="Sprite" parent="Control"]
+position = Vector2( -1494.82, -979.92 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda24" type="Sprite" parent="Control"]
+position = Vector2( 1180.24, -1088.19 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda27" type="Sprite" parent="Control"]
+position = Vector2( 2154.63, 919.24 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda3" type="Sprite" parent="Control"]
+position = Vector2( 384.565, -229.031 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda4" type="Sprite" parent="Control"]
+position = Vector2( -911.406, -156.015 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda7" type="Sprite" parent="Control"]
+position = Vector2( -888.851, -1148.45 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda10" type="Sprite" parent="Control"]
+position = Vector2( -942.983, 732.665 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda14" type="Sprite" parent="Control"]
+position = Vector2( -2160.97, 10.8944 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda17" type="Sprite" parent="Control"]
+position = Vector2( -2084.28, 913.108 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda21" type="Sprite" parent="Control"]
+position = Vector2( -2219.62, -1035.67 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda23" type="Sprite" parent="Control"]
+position = Vector2( 231.415, -670.748 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda25" type="Sprite" parent="Control"]
+position = Vector2( 1429.84, 859.299 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda2" type="Sprite" parent="Control"]
+position = Vector2( 820.552, -459.823 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda6" type="Sprite" parent="Control"]
+position = Vector2( -475.419, -386.808 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda9" type="Sprite" parent="Control"]
+position = Vector2( -452.864, -1379.24 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda11" type="Sprite" parent="Control"]
+position = Vector2( -506.997, 501.873 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda15" type="Sprite" parent="Control"]
+position = Vector2( -1724.99, -219.898 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda18" type="Sprite" parent="Control"]
+position = Vector2( -1648.3, 682.316 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda20" type="Sprite" parent="Control"]
+position = Vector2( -1783.63, -1266.47 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda22" type="Sprite" parent="Control"]
+position = Vector2( 1031.72, -1301.45 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="miranda26" type="Sprite" parent="Control"]
+position = Vector2( 1865.82, 628.506 )
+rotation = -2.76774
+texture = ExtResource( 5 )
+
+[node name="d7" type="Sprite" parent="Control"]
+position = Vector2( 1192.45, 378.514 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d11" type="Sprite" parent="Control"]
+position = Vector2( -103.523, 451.529 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d17" type="Sprite" parent="Control"]
+position = Vector2( -80.968, -540.906 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d21" type="Sprite" parent="Control"]
+position = Vector2( -135.101, 1340.21 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d25" type="Sprite" parent="Control"]
+position = Vector2( -1353.09, 618.439 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d29" type="Sprite" parent="Control"]
+position = Vector2( -1276.4, 1520.65 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d34" type="Sprite" parent="Control"]
+position = Vector2( -1411.73, -428.129 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d36" type="Sprite" parent="Control"]
+position = Vector2( 1263.33, -536.395 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d41" type="Sprite" parent="Control"]
+position = Vector2( 290.514, 574.897 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d10" type="Sprite" parent="Control"]
+position = Vector2( 380.538, 176.407 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d13" type="Sprite" parent="Control"]
+position = Vector2( -915.433, 249.423 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d15" type="Sprite" parent="Control"]
+position = Vector2( -892.878, -743.012 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d22" type="Sprite" parent="Control"]
+position = Vector2( -947.01, 1138.1 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d26" type="Sprite" parent="Control"]
+position = Vector2( -2165, 416.333 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d30" type="Sprite" parent="Control"]
+position = Vector2( -2088.31, 1318.55 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d31" type="Sprite" parent="Control"]
+position = Vector2( -2223.64, -630.235 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d35" type="Sprite" parent="Control"]
+position = Vector2( 451.42, -738.501 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d42" type="Sprite" parent="Control"]
+position = Vector2( 1425.81, 1268.92 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d8" type="Sprite" parent="Control"]
+position = Vector2( 988.474, -309.405 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d14" type="Sprite" parent="Control"]
+position = Vector2( -307.497, -236.389 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d16" type="Sprite" parent="Control"]
+position = Vector2( -284.942, -1228.82 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d20" type="Sprite" parent="Control"]
+position = Vector2( -339.074, 652.291 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d24" type="Sprite" parent="Control"]
+position = Vector2( -1557.06, -69.4796 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d28" type="Sprite" parent="Control"]
+position = Vector2( -1480.38, 832.734 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d33" type="Sprite" parent="Control"]
+position = Vector2( -1615.71, -1116.05 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d37" type="Sprite" parent="Control"]
+position = Vector2( 921.172, -862.088 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d39" type="Sprite" parent="Control"]
+position = Vector2( 1145.99, -115.115 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d9" type="Sprite" parent="Control"]
+position = Vector2( 518.054, -459.243 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d12" type="Sprite" parent="Control"]
+position = Vector2( -777.917, -386.227 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d18" type="Sprite" parent="Control"]
+position = Vector2( -755.362, -1378.66 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d19" type="Sprite" parent="Control"]
+position = Vector2( -809.495, 502.454 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d23" type="Sprite" parent="Control"]
+position = Vector2( -2027.48, -219.317 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d27" type="Sprite" parent="Control"]
+position = Vector2( -1950.8, 682.897 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d32" type="Sprite" parent="Control"]
+position = Vector2( -2086.13, -1265.89 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d38" type="Sprite" parent="Control"]
+position = Vector2( 588.936, -1374.15 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="d40" type="Sprite" parent="Control"]
+position = Vector2( 1613.58, 717.026 )
+rotation = 2.43958
+texture = ExtResource( 6 )
+
+[node name="bop" type="Sprite" parent="Control"]
+position = Vector2( 651.49, 368.784 )
+rotation = -2.26124
+texture = ExtResource( 7 )
+
+[node name="bop8" type="Sprite" parent="Control"]
+position = Vector2( -437.198, 25.1399 )
+rotation = -2.26124
+texture = ExtResource( 7 )
+
+[node name="bop10" type="Sprite" parent="Control"]
+position = Vector2( -414.643, -967.295 )
+rotation = -2.26124
+texture = ExtResource( 7 )
+
+[node name="bop14" type="Sprite" parent="Control"]
+position = Vector2( -468.776, 913.821 )
+rotation = -2.26124
+texture = ExtResource( 7 )
+
+[node name="bop19" type="Sprite" parent="Control"]
+position = Vector2( -1686.76, 192.05 )
+rotation = -2.26124
+texture = ExtResource( 7 )
+
+[node name="bop23" type="Sprite" parent="Control"]
+position = Vector2( -1610.08, 1094.26 )
+rotation = -2.26124
+texture = ExtResource( 7 )
+
+[node name="bop26" type="Sprite" parent="Control"]
+position = Vector2( -1745.41, -854.518 )
+rotation = -2.26124
+texture = ExtResource( 7 )
+
+[node name="bop29" type="Sprite" parent="Control"]
+position = Vector2( 1503.35, -422.592 )
+rotation = -2.26124
+texture = ExtResource( 7 )
+
+[node name="bop35" type="Sprite" parent="Control"]
+position = Vector2( 1904.05, 1044.64 )
+rotation = -2.26124
+texture = ExtResource( 7 )
+
+[node name="bop2" type="Sprite" parent="Control"]
+position = Vector2( 1217.48, 120.148 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop6" type="Sprite" parent="Control"]
+position = Vector2( 57.6138, 147.101 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop11" type="Sprite" parent="Control"]
+position = Vector2( 80.1689, -845.335 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop13" type="Sprite" parent="Control"]
+position = Vector2( 26.0361, 1035.78 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop18" type="Sprite" parent="Control"]
+position = Vector2( -1191.95, 314.01 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop21" type="Sprite" parent="Control"]
+position = Vector2( -1115.26, 1216.22 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop27" type="Sprite" parent="Control"]
+position = Vector2( -1250.6, -732.558 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop31" type="Sprite" parent="Control"]
+position = Vector2( 1424.47, -840.823 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop36" type="Sprite" parent="Control"]
+position = Vector2( 380.467, 942.567 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop3" type="Sprite" parent="Control"]
+position = Vector2( 590.459, -26.9681 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop7" type="Sprite" parent="Control"]
+position = Vector2( -705.512, 46.0474 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop12" type="Sprite" parent="Control"]
+position = Vector2( -682.957, -946.388 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop16" type="Sprite" parent="Control"]
+position = Vector2( -737.09, 934.728 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop17" type="Sprite" parent="Control"]
+position = Vector2( -1955.08, 212.957 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop22" type="Sprite" parent="Control"]
+position = Vector2( -1878.39, 1115.17 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop28" type="Sprite" parent="Control"]
+position = Vector2( -2013.72, -833.611 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop32" type="Sprite" parent="Control"]
+position = Vector2( 661.342, -941.876 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop33" type="Sprite" parent="Control"]
+position = Vector2( 1635.73, 1065.55 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop4" type="Sprite" parent="Control"]
+position = Vector2( 260.246, -456.381 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop5" type="Sprite" parent="Control"]
+position = Vector2( -1123.66, -305.896 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop9" type="Sprite" parent="Control"]
+position = Vector2( -1101.11, -1298.33 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop15" type="Sprite" parent="Control"]
+position = Vector2( -1155.24, 582.784 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop20" type="Sprite" parent="Control"]
+position = Vector2( -2373.23, -138.987 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop24" type="Sprite" parent="Control"]
+position = Vector2( -2296.54, 763.227 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop25" type="Sprite" parent="Control"]
+position = Vector2( -2431.87, -1185.55 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop30" type="Sprite" parent="Control"]
+position = Vector2( 243.19, -1293.82 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="bop34" type="Sprite" parent="Control"]
+position = Vector2( 1217.58, 709.417 )
+rotation = -3.78184
+texture = ExtResource( 7 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -102.0
+color = Color( 0, 0, 0, 0.345098 )
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="icon" type="Sprite" parent="."]
+modulate = Color( 0, 0.858824, 1, 1 )
+position = Vector2( 128.638, 191.235 )
+scale = Vector2( 0.571208, 0.571208 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Label" type="Label" parent="."]
+margin_top = 17.0
 margin_right = 600.0
-margin_bottom = 372.0
+margin_bottom = 63.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 1, 0.494118, 0, 1 )
 text = "Close Quarters Battle"
 align = 1
 valign = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
-margin_top = 376.0
-margin_right = 600.0
-margin_bottom = 748.0
+[node name="version" type="Label" parent="."]
+margin_left = 105.0
+margin_top = 49.0
+margin_right = 494.0
+margin_bottom = 95.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 1, 0.494118, 0, 1 )
+text = "Close Quarters Battle"
+align = 2
+valign = 1
+script = ExtResource( 11 )
+
+[node name="version2" type="Label" parent="."]
+margin_left = 105.0
+margin_top = 70.476
+margin_right = 494.0
+margin_bottom = 116.476
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 1, 0.494118, 0, 1 )
+text = "Close Quarters Battle"
+align = 2
+valign = 1
+script = SubResource( 2 )
+
+[node name="Label2" type="Label" parent="."]
+margin_top = 742.0
+margin_right = 600.0
+margin_bottom = 793.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 1, 0.494118, 0, 1 )
 text = "Press a button below to begin"
 align = 1
 valign = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 752.0
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_top = 813.0
 margin_right = 600.0
-margin_bottom = 1126.0
+margin_bottom = 1024.0
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer2"]
 margin_right = 600.0
-margin_bottom = 122.0
+margin_bottom = 67.0
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 9 )
 text = "Single Player"
 
-[node name="Button2" type="Button" parent="VBoxContainer/VBoxContainer"]
-margin_top = 126.0
+[node name="Button2" type="Button" parent="VBoxContainer2"]
+margin_top = 71.0
 margin_right = 600.0
-margin_bottom = 248.0
+margin_bottom = 138.0
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 9 )
 text = "Two Player Local"
 
-[node name="Button3" type="Button" parent="VBoxContainer/VBoxContainer"]
-margin_top = 252.0
+[node name="Button3" type="Button" parent="VBoxContainer2"]
+margin_top = 142.0
 margin_right = 600.0
-margin_bottom = 374.0
+margin_bottom = 211.0
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 4 )
-disabled = true
-text = "Two Player Network"
+custom_fonts/font = ExtResource( 9 )
+text = "About"
 
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/Button3" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Button3" to="." method="_on_Button3_pressed"]

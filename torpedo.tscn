@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Torpedo.gd" type="Script" id=1]
 [ext_resource path="res://assets/torpedoes/streaks.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/torpedoes/torp.png" type="Texture" id=4]
 [ext_resource path="res://assets/sounds/00 - Desktop - tos photon torpedo 2.ogg" type="AudioStream" id=5]
 [ext_resource path="res://torpedo_area.gd" type="Script" id=6]
+[ext_resource path="res://assets/sounds/00 - Desktop - tos hullhit 2.ogg" type="AudioStream" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -16,34 +17,36 @@ modulate = Color( 1, 0, 0, 1 )
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 
-[node name="streaks" type="Sprite" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="streaks" type="Sprite" parent="Node2D"]
 modulate = Color( 1, 1, 1, 0.533333 )
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
 
-[node name="streaks2" type="Sprite" parent="."]
+[node name="streaks2" type="Sprite" parent="Node2D"]
 modulate = Color( 1, 1, 1, 0.533333 )
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
 
-[node name="streaks3" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.533333 )
-rotation = 3.14159
-texture = ExtResource( 2 )
-script = ExtResource( 3 )
-
-[node name="streaks4" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.533333 )
-texture = ExtResource( 2 )
-script = ExtResource( 3 )
-
-[node name="streaks5" type="Sprite" parent="."]
+[node name="streaks3" type="Sprite" parent="Node2D"]
 modulate = Color( 1, 1, 1, 0.533333 )
 rotation = 3.14159
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
 
-[node name="torp" type="Sprite" parent="."]
+[node name="streaks4" type="Sprite" parent="Node2D"]
+modulate = Color( 1, 1, 1, 0.533333 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="streaks5" type="Sprite" parent="Node2D"]
+modulate = Color( 1, 1, 1, 0.533333 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="torp" type="Sprite" parent="Node2D"]
 texture = ExtResource( 4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -56,5 +59,9 @@ script = ExtResource( 6 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
+[node name="splode" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_shape_entered" from="Area2D" to="." method="_on_Area2D_area_shape_entered"]
+[connection signal="finished" from="splode" to="." method="_on_splode_finished"]

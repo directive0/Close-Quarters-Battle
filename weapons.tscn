@@ -1,325 +1,148 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://weapons.gd" type="Script" id=1]
 [ext_resource path="res://assets/main_font_small.tres" type="DynamicFont" id=2]
 [ext_resource path="res://selector_button.gd" type="Script" id=3]
-[ext_resource path="res://assets/main_font_medium.tres" type="DynamicFont" id=4]
-[ext_resource path="res://OptionButton.gd" type="Script" id=5]
-[ext_resource path="res://assets/sounds/00 - Desktop - tos keypress1.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/00 - Desktop - tos keypress7.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/main_font_medium.tres" type="DynamicFont" id=5]
+[ext_resource path="res://OptionButton.gd" type="Script" id=6]
+[ext_resource path="res://assets/sounds/00 - Desktop - tos keypress1.ogg" type="AudioStream" id=7]
 
 [node name="weapons" type="Control"]
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
 size_flags_vertical = 3
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 color = Color( 0, 0, 0, 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 600.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 0, 25 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
 size_flags_vertical = 5
 color = Color( 0.305882, 0.305882, 0.305882, 1 )
 
 [node name="Label" type="Label" parent="VBoxContainer/ColorRect"]
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 2 )
 text = "CONN"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_top = 29.0
 margin_right = 600.0
 margin_bottom = 69.0
 rect_min_size = Vector2( 0, 25 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 600.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-alignment = 0
 
 [node name="selector_button" type="ColorRect" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 197.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
 color = Color( 0.521569, 0, 0, 1 )
 script = ExtResource( 3 )
-controls = 0
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/HBoxContainer/selector_button"]
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 2 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Particle Beam"
 flat = true
-align = 1
 
 [node name="selector_button2" type="ColorRect" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 201.0
 margin_right = 398.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
 color = Color( 0.521569, 0, 0, 1 )
 script = ExtResource( 3 )
 controls = 1
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/HBoxContainer/selector_button2"]
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 2 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Torpedo"
 flat = true
-align = 1
 
 [node name="selector_button3" type="ColorRect" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 402.0
 margin_right = 600.0
 margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
 color = Color( 0.521569, 0, 0, 1 )
 script = ExtResource( 3 )
 controls = 2
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/HBoxContainer/selector_button3"]
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 2 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Scan"
 flat = true
-align = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
+stream = ExtResource( 4 )
 
 [node name="OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer2"]
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 584.0
 margin_bottom = 25.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 toggle_mode = true
-action_mode = 0
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 0
-items = [  ]
-selected = -1
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_top = 5.0
 margin_right = 584.0
 margin_bottom = 19.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 text = "50%"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="controls" type="HBoxContainer" parent="VBoxContainer"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_top = 73.0
 margin_right = 600.0
 margin_bottom = 1024.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
 size_flags_vertical = 3
 custom_constants/separation = 5
-alignment = 0
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/controls"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 297.0
+margin_right = 600.0
 margin_bottom = 951.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0, 0.87451, 0.0352941, 1 )
 
 [node name="Set_course" type="Button" parent="VBoxContainer/controls/ColorRect"]
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 2 )
@@ -327,40 +150,21 @@ custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0.796078, 0.796078, 0.796078, 1 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Set Course"
 flat = true
-align = 1
 
 [node name="ColorRect2" type="ColorRect" parent="VBoxContainer/controls"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+visible = false
 margin_left = 302.0
 margin_right = 600.0
-margin_bottom = 951.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
+margin_bottom = 941.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.87451, 0.839216, 0, 1 )
 
 [node name="Target_weapons" type="Button" parent="VBoxContainer/controls/ColorRect2"]
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 2 )
@@ -368,47 +172,21 @@ custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0.796078, 0.796078, 0.796078, 1 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Target Weapons"
 flat = true
-align = 1
 
 [node name="Engage" type="Button" parent="VBoxContainer"]
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 684.0
+margin_top = 555.0
 margin_right = 600.0
 margin_bottom = 1024.0
 rect_min_size = Vector2( 0, 60 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Engage"
-flat = false
-align = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-stream_paused = false
-mix_target = 0
-bus = "Master"
+stream = ExtResource( 7 )
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/HBoxContainer/selector_button/Button" to="VBoxContainer/HBoxContainer2/HBoxContainer/selector_button" method="_on_Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/HBoxContainer/selector_button2/Button" to="VBoxContainer/HBoxContainer2/HBoxContainer/selector_button2" method="_on_Button_pressed"]

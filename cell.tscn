@@ -1,15 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://cell.gd" type="Script" id=1]
 [ext_resource path="res://assets/square edged.png" type="Texture" id=2]
 [ext_resource path="res://assets/sounds/00 - Desktop - tos keypress4.ogg" type="AudioStream" id=3]
 [ext_resource path="res://assets/sounds/00 - Desktop - tos keypress5.ogg" type="AudioStream" id=4]
 
-[sub_resource type="CircleShape2D" id=1]
-
-radius = 13.4728
-
-[node name="cell" type="Control"]
+[node name="cell" type="Control" groups=[
+"cell",
+]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -23,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0 )
@@ -35,9 +34,6 @@ texture_normal = ExtResource( 2 )
 expand = true
 
 [node name="Position2D" type="Position2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Position2D"]
-shape = SubResource( 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

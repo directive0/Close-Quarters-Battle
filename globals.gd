@@ -1,4 +1,6 @@
 extends Node
+var version = "Open Beta v1.4a"
+var version2 = "(The 'How about this?' update!)"
 var player = {}
 var enemy = {}
 var state = "start"
@@ -21,6 +23,13 @@ var player2_weapon = 0
 
 var ready_to_go
 
+
+#single player data
+var opponents = 1
+var species = 0
+var starts = [120, 10, 110]
+
+
 # variable to determine which move has been made.
 var move_count = 0
 
@@ -33,8 +42,8 @@ var move_count = 0
 var chambered = 0
 
 # Opening notifier text
-var note_text = "Welcome to Close Quarters Battle a1.0"
-var p2note_text = "Welcome to Close Quarters Battle a1.0"
+var note_text = "Welcome to Close Quarters Battle"
+var p2note_text = "Welcome to Close Quarters Battle"
 
 # variables to hold the current status of both players
 var player1_stats = {"hull" : 100, "shield" : 100, "torpedoes" : 10, "particle" : 100, "energy" : 100}
@@ -81,13 +90,26 @@ func end_turn():
 		state = "idle"
 		
 	if mode == "2p":
+		# all this stuff is in 2p only
 		player1_ready = false
 		player2_ready = false
 		get_tree().get_nodes_in_group("p1")[0].reset()
 		get_tree().get_nodes_in_group("p2")[0].reset()
 	else:
+		# all this stuff is single player only.
+		
 		get_tree().get_nodes_in_group("player")[0].reset()
-		get_tree().get_nodes_in_group("enemy")[0].reset()
+		
+		if get_tree().get_nodes_in_group("player")[0].sensor == 1:
+			get_tree().get_nodes_in_group("player")[0].sensor = 0
+			for i in range(get_tree().get_nodes_in_group("enemy").size()):
+				get_tree().get_nodes_in_group("enemy")[i].revealed = true
+		
+		#reset every enemy ship
+		for i in range(get_tree().get_nodes_in_group("enemy").size()):
+			get_tree().get_nodes_in_group("enemy")[i].reset()
+		
+		
 	
 func clear_target():
 	var tarret = get_tree().get_nodes_in_group("target_reticule")

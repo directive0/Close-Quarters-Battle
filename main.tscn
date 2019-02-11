@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
-[ext_resource path="res://topbar.tscn" type="PackedScene" id=2]
-[ext_resource path="res://playfield.tscn" type="PackedScene" id=3]
+[ext_resource path="res://playfield.tscn" type="PackedScene" id=2]
+[ext_resource path="res://topbar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui.tscn" type="PackedScene" id=4]
 [ext_resource path="res://helpful_text.tscn" type="PackedScene" id=5]
 
@@ -11,19 +11,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-alignment = 1
-
-[node name="topbar" parent="VBoxContainer" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 600.0
-margin_bottom = 60.0
-
-[node name="playfield" parent="VBoxContainer" instance=ExtResource( 3 )]
+[node name="playfield" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
+show_behind_parent = true
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 64.0
@@ -31,483 +21,515 @@ margin_right = 600.0
 margin_bottom = 664.0
 rect_min_size = Vector2( 600, 600 )
 
-[node name="GridContainer" parent="VBoxContainer/playfield" index="3"]
+[node name="GridContainer" parent="playfield" index="3"]
 editor/display_folded = true
 
-[node name="cell" parent="VBoxContainer/playfield/GridContainer" index="0" groups=[
-"cell0",
-]]
+[node name="cell" parent="playfield/GridContainer" index="0"]
 margin_bottom = 50.0
 
-[node name="cell2" parent="VBoxContainer/playfield/GridContainer" index="1"]
+[node name="cell2" parent="playfield/GridContainer" index="1"]
 margin_bottom = 50.0
 
-[node name="cell3" parent="VBoxContainer/playfield/GridContainer" index="2"]
+[node name="cell3" parent="playfield/GridContainer" index="2"]
 margin_bottom = 50.0
 
-[node name="cell4" parent="VBoxContainer/playfield/GridContainer" index="3"]
+[node name="cell4" parent="playfield/GridContainer" index="3"]
 margin_bottom = 50.0
 
-[node name="cell5" parent="VBoxContainer/playfield/GridContainer" index="4"]
+[node name="cell5" parent="playfield/GridContainer" index="4"]
 margin_bottom = 50.0
 
-[node name="cell6" parent="VBoxContainer/playfield/GridContainer" index="5"]
+[node name="cell6" parent="playfield/GridContainer" index="5"]
 margin_bottom = 50.0
 
-[node name="cell7" parent="VBoxContainer/playfield/GridContainer" index="6"]
+[node name="cell7" parent="playfield/GridContainer" index="6"]
 margin_bottom = 50.0
 
-[node name="cell8" parent="VBoxContainer/playfield/GridContainer" index="7"]
+[node name="cell8" parent="playfield/GridContainer" index="7"]
 margin_bottom = 50.0
 
-[node name="cell9" parent="VBoxContainer/playfield/GridContainer" index="8"]
+[node name="cell9" parent="playfield/GridContainer" index="8"]
 margin_bottom = 50.0
 
-[node name="cell10" parent="VBoxContainer/playfield/GridContainer" index="9"]
+[node name="cell10" parent="playfield/GridContainer" index="9"]
 margin_bottom = 50.0
 
-[node name="cell11" parent="VBoxContainer/playfield/GridContainer" index="10"]
+[node name="cell11" parent="playfield/GridContainer" index="10"]
 margin_bottom = 50.0
 
-[node name="cell12" parent="VBoxContainer/playfield/GridContainer" index="11"]
+[node name="cell12" parent="playfield/GridContainer" index="11"]
 margin_top = 54.0
 margin_bottom = 104.0
 
-[node name="cell13" parent="VBoxContainer/playfield/GridContainer" index="12"]
+[node name="cell13" parent="playfield/GridContainer" index="12"]
 margin_top = 54.0
 margin_bottom = 104.0
 
-[node name="cell14" parent="VBoxContainer/playfield/GridContainer" index="13"]
+[node name="cell14" parent="playfield/GridContainer" index="13"]
 margin_top = 54.0
 margin_bottom = 104.0
 
-[node name="cell15" parent="VBoxContainer/playfield/GridContainer" index="14"]
+[node name="cell15" parent="playfield/GridContainer" index="14"]
 margin_top = 54.0
 margin_bottom = 104.0
 
-[node name="cell16" parent="VBoxContainer/playfield/GridContainer" index="15"]
+[node name="cell16" parent="playfield/GridContainer" index="15"]
 margin_top = 54.0
 margin_bottom = 104.0
 
-[node name="cell17" parent="VBoxContainer/playfield/GridContainer" index="16"]
+[node name="cell17" parent="playfield/GridContainer" index="16"]
 margin_top = 54.0
 margin_bottom = 104.0
 
-[node name="cell18" parent="VBoxContainer/playfield/GridContainer" index="17"]
+[node name="cell18" parent="playfield/GridContainer" index="17"]
 margin_top = 54.0
 margin_bottom = 104.0
 
-[node name="cell19" parent="VBoxContainer/playfield/GridContainer" index="18"]
+[node name="cell19" parent="playfield/GridContainer" index="18"]
 margin_top = 54.0
 margin_bottom = 104.0
 
-[node name="cell20" parent="VBoxContainer/playfield/GridContainer" index="19"]
+[node name="cell20" parent="playfield/GridContainer" index="19"]
 margin_top = 54.0
 margin_bottom = 104.0
 
-[node name="cell21" parent="VBoxContainer/playfield/GridContainer" index="20"]
+[node name="cell21" parent="playfield/GridContainer" index="20"]
 margin_top = 54.0
 margin_bottom = 104.0
 
-[node name="cell22" parent="VBoxContainer/playfield/GridContainer" index="21"]
+[node name="cell22" parent="playfield/GridContainer" index="21"]
 margin_top = 54.0
 margin_bottom = 104.0
 
-[node name="cell23" parent="VBoxContainer/playfield/GridContainer" index="22"]
+[node name="cell23" parent="playfield/GridContainer" index="22"]
 margin_top = 108.0
 margin_bottom = 158.0
 
-[node name="cell24" parent="VBoxContainer/playfield/GridContainer" index="23"]
+[node name="cell24" parent="playfield/GridContainer" index="23"]
 margin_top = 108.0
 margin_bottom = 158.0
 
-[node name="cell25" parent="VBoxContainer/playfield/GridContainer" index="24"]
+[node name="cell25" parent="playfield/GridContainer" index="24"]
 margin_top = 108.0
 margin_bottom = 158.0
 
-[node name="cell26" parent="VBoxContainer/playfield/GridContainer" index="25"]
+[node name="cell26" parent="playfield/GridContainer" index="25"]
 margin_top = 108.0
 margin_bottom = 158.0
 
-[node name="cell27" parent="VBoxContainer/playfield/GridContainer" index="26"]
+[node name="cell27" parent="playfield/GridContainer" index="26"]
 margin_top = 108.0
 margin_bottom = 158.0
 
-[node name="cell28" parent="VBoxContainer/playfield/GridContainer" index="27"]
+[node name="cell28" parent="playfield/GridContainer" index="27"]
 margin_top = 108.0
 margin_bottom = 158.0
 
-[node name="cell29" parent="VBoxContainer/playfield/GridContainer" index="28"]
+[node name="cell29" parent="playfield/GridContainer" index="28"]
 margin_top = 108.0
 margin_bottom = 158.0
 
-[node name="cell30" parent="VBoxContainer/playfield/GridContainer" index="29"]
+[node name="cell30" parent="playfield/GridContainer" index="29"]
 margin_top = 108.0
 margin_bottom = 158.0
 
-[node name="cell31" parent="VBoxContainer/playfield/GridContainer" index="30"]
+[node name="cell31" parent="playfield/GridContainer" index="30"]
 margin_top = 108.0
 margin_bottom = 158.0
 
-[node name="cell32" parent="VBoxContainer/playfield/GridContainer" index="31"]
+[node name="cell32" parent="playfield/GridContainer" index="31"]
 margin_top = 108.0
 margin_bottom = 158.0
 
-[node name="cell33" parent="VBoxContainer/playfield/GridContainer" index="32"]
+[node name="cell33" parent="playfield/GridContainer" index="32"]
 margin_top = 108.0
 margin_bottom = 158.0
 
-[node name="cell34" parent="VBoxContainer/playfield/GridContainer" index="33"]
+[node name="cell34" parent="playfield/GridContainer" index="33"]
 margin_top = 162.0
 margin_bottom = 212.0
 
-[node name="cell35" parent="VBoxContainer/playfield/GridContainer" index="34"]
+[node name="cell35" parent="playfield/GridContainer" index="34"]
 margin_top = 162.0
 margin_bottom = 212.0
 
-[node name="cell36" parent="VBoxContainer/playfield/GridContainer" index="35"]
+[node name="cell36" parent="playfield/GridContainer" index="35"]
 margin_top = 162.0
 margin_bottom = 212.0
 
-[node name="cell37" parent="VBoxContainer/playfield/GridContainer" index="36"]
+[node name="cell37" parent="playfield/GridContainer" index="36"]
 margin_top = 162.0
 margin_bottom = 212.0
 
-[node name="cell38" parent="VBoxContainer/playfield/GridContainer" index="37"]
+[node name="cell38" parent="playfield/GridContainer" index="37"]
 margin_top = 162.0
 margin_bottom = 212.0
 
-[node name="cell39" parent="VBoxContainer/playfield/GridContainer" index="38"]
+[node name="cell39" parent="playfield/GridContainer" index="38"]
 margin_top = 162.0
 margin_bottom = 212.0
 
-[node name="cell40" parent="VBoxContainer/playfield/GridContainer" index="39"]
+[node name="cell40" parent="playfield/GridContainer" index="39"]
 margin_top = 162.0
 margin_bottom = 212.0
 
-[node name="cell41" parent="VBoxContainer/playfield/GridContainer" index="40"]
+[node name="cell41" parent="playfield/GridContainer" index="40"]
 margin_top = 162.0
 margin_bottom = 212.0
 
-[node name="cell42" parent="VBoxContainer/playfield/GridContainer" index="41"]
+[node name="cell42" parent="playfield/GridContainer" index="41"]
 margin_top = 162.0
 margin_bottom = 212.0
 
-[node name="cell43" parent="VBoxContainer/playfield/GridContainer" index="42"]
+[node name="cell43" parent="playfield/GridContainer" index="42"]
 margin_top = 162.0
 margin_bottom = 212.0
 
-[node name="cell44" parent="VBoxContainer/playfield/GridContainer" index="43"]
+[node name="cell44" parent="playfield/GridContainer" index="43"]
 margin_top = 162.0
 margin_bottom = 212.0
 
-[node name="cell45" parent="VBoxContainer/playfield/GridContainer" index="44"]
+[node name="cell45" parent="playfield/GridContainer" index="44"]
 margin_top = 216.0
 margin_bottom = 266.0
 
-[node name="cell46" parent="VBoxContainer/playfield/GridContainer" index="45"]
+[node name="cell46" parent="playfield/GridContainer" index="45"]
 margin_top = 216.0
 margin_bottom = 266.0
 
-[node name="cell47" parent="VBoxContainer/playfield/GridContainer" index="46"]
+[node name="cell47" parent="playfield/GridContainer" index="46"]
 margin_top = 216.0
 margin_bottom = 266.0
 
-[node name="cell48" parent="VBoxContainer/playfield/GridContainer" index="47"]
+[node name="cell48" parent="playfield/GridContainer" index="47"]
 margin_top = 216.0
 margin_bottom = 266.0
 
-[node name="cell49" parent="VBoxContainer/playfield/GridContainer" index="48"]
+[node name="cell49" parent="playfield/GridContainer" index="48"]
 margin_top = 216.0
 margin_bottom = 266.0
 
-[node name="cell50" parent="VBoxContainer/playfield/GridContainer" index="49"]
+[node name="cell50" parent="playfield/GridContainer" index="49"]
 margin_top = 216.0
 margin_bottom = 266.0
 
-[node name="cell51" parent="VBoxContainer/playfield/GridContainer" index="50"]
+[node name="cell51" parent="playfield/GridContainer" index="50"]
 margin_top = 216.0
 margin_bottom = 266.0
 
-[node name="cell52" parent="VBoxContainer/playfield/GridContainer" index="51"]
+[node name="cell52" parent="playfield/GridContainer" index="51"]
 margin_top = 216.0
 margin_bottom = 266.0
 
-[node name="cell53" parent="VBoxContainer/playfield/GridContainer" index="52"]
+[node name="cell53" parent="playfield/GridContainer" index="52"]
 margin_top = 216.0
 margin_bottom = 266.0
 
-[node name="cell54" parent="VBoxContainer/playfield/GridContainer" index="53"]
+[node name="cell54" parent="playfield/GridContainer" index="53"]
 margin_top = 216.0
 margin_bottom = 266.0
 
-[node name="cell55" parent="VBoxContainer/playfield/GridContainer" index="54"]
+[node name="cell55" parent="playfield/GridContainer" index="54"]
 margin_top = 216.0
 margin_bottom = 266.0
 
-[node name="cell56" parent="VBoxContainer/playfield/GridContainer" index="55"]
+[node name="cell56" parent="playfield/GridContainer" index="55"]
 margin_top = 270.0
 margin_bottom = 320.0
 
-[node name="cell57" parent="VBoxContainer/playfield/GridContainer" index="56"]
+[node name="cell57" parent="playfield/GridContainer" index="56"]
 margin_top = 270.0
 margin_bottom = 320.0
 
-[node name="cell58" parent="VBoxContainer/playfield/GridContainer" index="57"]
+[node name="cell58" parent="playfield/GridContainer" index="57"]
 margin_top = 270.0
 margin_bottom = 320.0
 
-[node name="cell59" parent="VBoxContainer/playfield/GridContainer" index="58"]
+[node name="cell59" parent="playfield/GridContainer" index="58"]
 margin_top = 270.0
 margin_bottom = 320.0
 
-[node name="cell60" parent="VBoxContainer/playfield/GridContainer" index="59"]
+[node name="cell60" parent="playfield/GridContainer" index="59"]
 margin_top = 270.0
 margin_bottom = 320.0
 
-[node name="cell61" parent="VBoxContainer/playfield/GridContainer" index="60"]
+[node name="cell61" parent="playfield/GridContainer" index="60"]
 margin_top = 270.0
 margin_bottom = 320.0
 
-[node name="cell62" parent="VBoxContainer/playfield/GridContainer" index="61"]
+[node name="cell62" parent="playfield/GridContainer" index="61"]
 margin_top = 270.0
 margin_bottom = 320.0
 
-[node name="cell63" parent="VBoxContainer/playfield/GridContainer" index="62"]
+[node name="cell63" parent="playfield/GridContainer" index="62"]
 margin_top = 270.0
 margin_bottom = 320.0
 
-[node name="cell64" parent="VBoxContainer/playfield/GridContainer" index="63"]
+[node name="cell64" parent="playfield/GridContainer" index="63"]
 margin_top = 270.0
 margin_bottom = 320.0
 
-[node name="cell65" parent="VBoxContainer/playfield/GridContainer" index="64"]
+[node name="cell65" parent="playfield/GridContainer" index="64"]
 margin_top = 270.0
 margin_bottom = 320.0
 
-[node name="cell66" parent="VBoxContainer/playfield/GridContainer" index="65"]
+[node name="cell66" parent="playfield/GridContainer" index="65"]
 margin_top = 270.0
 margin_bottom = 320.0
 
-[node name="cell67" parent="VBoxContainer/playfield/GridContainer" index="66"]
+[node name="cell67" parent="playfield/GridContainer" index="66"]
 margin_top = 324.0
 margin_bottom = 374.0
 
-[node name="cell68" parent="VBoxContainer/playfield/GridContainer" index="67"]
+[node name="cell68" parent="playfield/GridContainer" index="67"]
 margin_top = 324.0
 margin_bottom = 374.0
 
-[node name="cell69" parent="VBoxContainer/playfield/GridContainer" index="68"]
+[node name="cell69" parent="playfield/GridContainer" index="68"]
 margin_top = 324.0
 margin_bottom = 374.0
 
-[node name="cell70" parent="VBoxContainer/playfield/GridContainer" index="69"]
+[node name="cell70" parent="playfield/GridContainer" index="69"]
 margin_top = 324.0
 margin_bottom = 374.0
 
-[node name="cell71" parent="VBoxContainer/playfield/GridContainer" index="70"]
+[node name="cell71" parent="playfield/GridContainer" index="70"]
 margin_top = 324.0
 margin_bottom = 374.0
 
-[node name="cell72" parent="VBoxContainer/playfield/GridContainer" index="71"]
+[node name="cell72" parent="playfield/GridContainer" index="71"]
 margin_top = 324.0
 margin_bottom = 374.0
 
-[node name="cell73" parent="VBoxContainer/playfield/GridContainer" index="72"]
+[node name="cell73" parent="playfield/GridContainer" index="72"]
 margin_top = 324.0
 margin_bottom = 374.0
 
-[node name="cell74" parent="VBoxContainer/playfield/GridContainer" index="73"]
+[node name="cell74" parent="playfield/GridContainer" index="73"]
 margin_top = 324.0
 margin_bottom = 374.0
 
-[node name="cell75" parent="VBoxContainer/playfield/GridContainer" index="74"]
+[node name="cell75" parent="playfield/GridContainer" index="74"]
 margin_top = 324.0
 margin_bottom = 374.0
 
-[node name="cell76" parent="VBoxContainer/playfield/GridContainer" index="75"]
+[node name="cell76" parent="playfield/GridContainer" index="75"]
 margin_top = 324.0
 margin_bottom = 374.0
 
-[node name="cell77" parent="VBoxContainer/playfield/GridContainer" index="76"]
+[node name="cell77" parent="playfield/GridContainer" index="76"]
 margin_top = 324.0
 margin_bottom = 374.0
 
-[node name="cell78" parent="VBoxContainer/playfield/GridContainer" index="77"]
+[node name="cell78" parent="playfield/GridContainer" index="77"]
 margin_top = 378.0
 margin_bottom = 428.0
 
-[node name="cell79" parent="VBoxContainer/playfield/GridContainer" index="78"]
+[node name="cell79" parent="playfield/GridContainer" index="78"]
 margin_top = 378.0
 margin_bottom = 428.0
 
-[node name="cell80" parent="VBoxContainer/playfield/GridContainer" index="79"]
+[node name="cell80" parent="playfield/GridContainer" index="79"]
 margin_top = 378.0
 margin_bottom = 428.0
 
-[node name="cell81" parent="VBoxContainer/playfield/GridContainer" index="80"]
+[node name="cell81" parent="playfield/GridContainer" index="80"]
 margin_top = 378.0
 margin_bottom = 428.0
 
-[node name="cell82" parent="VBoxContainer/playfield/GridContainer" index="81"]
+[node name="cell82" parent="playfield/GridContainer" index="81"]
 margin_top = 378.0
 margin_bottom = 428.0
 
-[node name="cell83" parent="VBoxContainer/playfield/GridContainer" index="82"]
+[node name="cell83" parent="playfield/GridContainer" index="82"]
 margin_top = 378.0
 margin_bottom = 428.0
 
-[node name="cell84" parent="VBoxContainer/playfield/GridContainer" index="83"]
+[node name="cell84" parent="playfield/GridContainer" index="83"]
 margin_top = 378.0
 margin_bottom = 428.0
 
-[node name="cell85" parent="VBoxContainer/playfield/GridContainer" index="84"]
+[node name="cell85" parent="playfield/GridContainer" index="84"]
 margin_top = 378.0
 margin_bottom = 428.0
 
-[node name="cell86" parent="VBoxContainer/playfield/GridContainer" index="85"]
+[node name="cell86" parent="playfield/GridContainer" index="85"]
 margin_top = 378.0
 margin_bottom = 428.0
 
-[node name="cell87" parent="VBoxContainer/playfield/GridContainer" index="86"]
+[node name="cell87" parent="playfield/GridContainer" index="86"]
 margin_top = 378.0
 margin_bottom = 428.0
 
-[node name="cell88" parent="VBoxContainer/playfield/GridContainer" index="87"]
+[node name="cell88" parent="playfield/GridContainer" index="87"]
 margin_top = 378.0
 margin_bottom = 428.0
 
-[node name="cell89" parent="VBoxContainer/playfield/GridContainer" index="88"]
+[node name="cell89" parent="playfield/GridContainer" index="88"]
 margin_top = 432.0
 margin_bottom = 482.0
 
-[node name="cell90" parent="VBoxContainer/playfield/GridContainer" index="89"]
+[node name="cell90" parent="playfield/GridContainer" index="89"]
 margin_top = 432.0
 margin_bottom = 482.0
 
-[node name="cell91" parent="VBoxContainer/playfield/GridContainer" index="90"]
+[node name="cell91" parent="playfield/GridContainer" index="90"]
 margin_top = 432.0
 margin_bottom = 482.0
 
-[node name="cell92" parent="VBoxContainer/playfield/GridContainer" index="91"]
+[node name="cell92" parent="playfield/GridContainer" index="91"]
 margin_top = 432.0
 margin_bottom = 482.0
 
-[node name="cell93" parent="VBoxContainer/playfield/GridContainer" index="92"]
+[node name="cell93" parent="playfield/GridContainer" index="92"]
 margin_top = 432.0
 margin_bottom = 482.0
 
-[node name="cell94" parent="VBoxContainer/playfield/GridContainer" index="93"]
+[node name="cell94" parent="playfield/GridContainer" index="93"]
 margin_top = 432.0
 margin_bottom = 482.0
 
-[node name="cell95" parent="VBoxContainer/playfield/GridContainer" index="94"]
+[node name="cell95" parent="playfield/GridContainer" index="94"]
 margin_top = 432.0
 margin_bottom = 482.0
 
-[node name="cell96" parent="VBoxContainer/playfield/GridContainer" index="95"]
+[node name="cell96" parent="playfield/GridContainer" index="95"]
 margin_top = 432.0
 margin_bottom = 482.0
 
-[node name="cell97" parent="VBoxContainer/playfield/GridContainer" index="96"]
+[node name="cell97" parent="playfield/GridContainer" index="96"]
 margin_top = 432.0
 margin_bottom = 482.0
 
-[node name="cell98" parent="VBoxContainer/playfield/GridContainer" index="97"]
+[node name="cell98" parent="playfield/GridContainer" index="97"]
 margin_top = 432.0
 margin_bottom = 482.0
 
-[node name="cell99" parent="VBoxContainer/playfield/GridContainer" index="98"]
+[node name="cell99" parent="playfield/GridContainer" index="98"]
 margin_top = 432.0
 margin_bottom = 482.0
 
-[node name="cell100" parent="VBoxContainer/playfield/GridContainer" index="99"]
+[node name="cell100" parent="playfield/GridContainer" index="99"]
 margin_top = 486.0
 margin_bottom = 536.0
 
-[node name="cell101" parent="VBoxContainer/playfield/GridContainer" index="100"]
+[node name="cell101" parent="playfield/GridContainer" index="100"]
 margin_top = 486.0
 margin_bottom = 536.0
 
-[node name="cell102" parent="VBoxContainer/playfield/GridContainer" index="101"]
+[node name="cell102" parent="playfield/GridContainer" index="101"]
 margin_top = 486.0
 margin_bottom = 536.0
 
-[node name="cell103" parent="VBoxContainer/playfield/GridContainer" index="102"]
+[node name="cell103" parent="playfield/GridContainer" index="102"]
 margin_top = 486.0
 margin_bottom = 536.0
 
-[node name="cell104" parent="VBoxContainer/playfield/GridContainer" index="103"]
+[node name="cell104" parent="playfield/GridContainer" index="103"]
 margin_top = 486.0
 margin_bottom = 536.0
 
-[node name="cell105" parent="VBoxContainer/playfield/GridContainer" index="104"]
+[node name="cell105" parent="playfield/GridContainer" index="104"]
 margin_top = 486.0
 margin_bottom = 536.0
 
-[node name="cell106" parent="VBoxContainer/playfield/GridContainer" index="105"]
+[node name="cell106" parent="playfield/GridContainer" index="105"]
 margin_top = 486.0
 margin_bottom = 536.0
 
-[node name="cell107" parent="VBoxContainer/playfield/GridContainer" index="106"]
+[node name="cell107" parent="playfield/GridContainer" index="106"]
 margin_top = 486.0
 margin_bottom = 536.0
 
-[node name="cell108" parent="VBoxContainer/playfield/GridContainer" index="107"]
+[node name="cell108" parent="playfield/GridContainer" index="107"]
 margin_top = 486.0
 margin_bottom = 536.0
 
-[node name="cell109" parent="VBoxContainer/playfield/GridContainer" index="108"]
+[node name="cell109" parent="playfield/GridContainer" index="108"]
 margin_top = 486.0
 margin_bottom = 536.0
 
-[node name="cell110" parent="VBoxContainer/playfield/GridContainer" index="109"]
+[node name="cell110" parent="playfield/GridContainer" index="109"]
 margin_top = 486.0
 margin_bottom = 536.0
 
-[node name="cell111" parent="VBoxContainer/playfield/GridContainer" index="110"]
+[node name="cell111" parent="playfield/GridContainer" index="110"]
 margin_top = 540.0
 margin_bottom = 590.0
 
-[node name="cell112" parent="VBoxContainer/playfield/GridContainer" index="111"]
+[node name="cell112" parent="playfield/GridContainer" index="111"]
 margin_top = 540.0
 margin_bottom = 590.0
 
-[node name="cell113" parent="VBoxContainer/playfield/GridContainer" index="112"]
+[node name="cell113" parent="playfield/GridContainer" index="112"]
 margin_top = 540.0
 margin_bottom = 590.0
 
-[node name="cell114" parent="VBoxContainer/playfield/GridContainer" index="113"]
+[node name="cell114" parent="playfield/GridContainer" index="113"]
 margin_top = 540.0
 margin_bottom = 590.0
 
-[node name="cell115" parent="VBoxContainer/playfield/GridContainer" index="114"]
+[node name="cell115" parent="playfield/GridContainer" index="114"]
 margin_top = 540.0
 margin_bottom = 590.0
 
-[node name="cell116" parent="VBoxContainer/playfield/GridContainer" index="115"]
+[node name="cell116" parent="playfield/GridContainer" index="115"]
 margin_top = 540.0
 margin_bottom = 590.0
 
-[node name="cell117" parent="VBoxContainer/playfield/GridContainer" index="116"]
+[node name="cell117" parent="playfield/GridContainer" index="116"]
 margin_top = 540.0
 margin_bottom = 590.0
 
-[node name="cell118" parent="VBoxContainer/playfield/GridContainer" index="117"]
+[node name="cell118" parent="playfield/GridContainer" index="117"]
 margin_top = 540.0
 margin_bottom = 590.0
 
-[node name="cell119" parent="VBoxContainer/playfield/GridContainer" index="118"]
+[node name="cell119" parent="playfield/GridContainer" index="118"]
 margin_top = 540.0
 margin_bottom = 590.0
 
-[node name="cell120" parent="VBoxContainer/playfield/GridContainer" index="119"]
+[node name="cell120" parent="playfield/GridContainer" index="119"]
 margin_top = 540.0
 margin_bottom = 590.0
 
-[node name="cell121" parent="VBoxContainer/playfield/GridContainer" index="120"]
+[node name="cell121" parent="playfield/GridContainer" index="120"]
 margin_top = 540.0
 margin_bottom = 590.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+alignment = 1
+
+[node name="topbar" parent="VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 600.0
+margin_bottom = 60.0
+
+[node name="VBoxContainer" parent="VBoxContainer/topbar" index="0"]
+editor/display_folded = true
+
+[node name="Controls" parent="VBoxContainer/topbar/VBoxContainer" index="0"]
+margin_bottom = 28.0
+
+[node name="ColorRect2" parent="VBoxContainer/topbar/VBoxContainer/Controls" index="1"]
+margin_bottom = 28.0
+
+[node name="ColorRect" parent="VBoxContainer/topbar/VBoxContainer" index="1"]
+margin_top = 32.0
+margin_bottom = 60.0
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_top = 64.0
+margin_right = 600.0
+margin_bottom = 664.0
+rect_min_size = Vector2( 600, 600 )
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="ui" parent="VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
@@ -532,8 +554,10 @@ wait_time = 0.3
 one_shot = true
 autostart = true
 
-[connection signal="ready" from="VBoxContainer/playfield" to="." method="_on_playfield_ready"]
+[connection signal="ready" from="playfield" to="." method="_on_playfield_ready"]
 [connection signal="timeout" from="level_timer" to="." method="_on_level_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
-[editable path="VBoxContainer/playfield"]
+[editable path="playfield"]
+
+[editable path="VBoxContainer/topbar"]

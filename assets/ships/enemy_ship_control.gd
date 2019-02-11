@@ -11,7 +11,7 @@ var t = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("moving enemy for first time")
+	#print("moving enemy for first time")
 	grid = get_tree().get_nodes_in_group("grid")[0].get_children()
 	var first_spot = grid[120]
 	var first_pos = first_spot.get_global_position()

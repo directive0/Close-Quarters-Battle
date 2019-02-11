@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fire_reticule.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node2D
+
+var value = 0
+var value2 = 0
+var counter = 30
+var direction = 0
+var direction2 = 0
+var scaler = 0
+var scaler2 = 0
+var speed = 300
+var speed2 = 0
+var step = 0
+
+var t
+var lastloc = Vector2()
+var newloc = Vector2()
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+var frame
+var firer
+var angle_to_target
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+	
+
+func setup(fired,origin,target):
+	pass
+	#set_global_transform(now)
+
+func rotate_to_target():
+	pass
+
+func move_forward(delta):
+	pass
+
+func move(delta):
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func impact():
+	pass
+
+func hit(damage):
+	pass
+
+func _on_Area2D_area_entered(area):
+	pass
+
+#func _on_Area2D_area_shape_entered(area_id, area, area_shape, self_shape):
+#	if frame < 0.9:
+#		print(\"torpedo hit! at: \", frame)
+#		area.hit(50)
+#		queue_free()
+	#pass # Replace with function body.
+
+
+func _on_splode_finished():
+	pass"
+
+[node name="Node2D" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+

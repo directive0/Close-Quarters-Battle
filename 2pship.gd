@@ -5,7 +5,7 @@ var target_loc
 var lastloc
 var newloc
 var current_cell
-
+var sensor = 0
 
 var explosion = load("res://explosion.tscn")
 
@@ -155,7 +155,7 @@ func move_to(destination):
 func fire_torpedo():
 	var this_torp = torpedo.instance()
 	print("firing torp at: ", get_global_position())
-	this_torp.setup(get_global_position(),target_loc)
+	this_torp.setup(self,get_global_position(),target_loc)
 
 	var substrate = get_tree().get_nodes_in_group("ship_space")[0]
 
