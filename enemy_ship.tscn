@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/ships/enemy_ship.gd" type="Script" id=1]
 [ext_resource path="res://assets/ships/ship1.png" type="Texture" id=2]
@@ -7,8 +7,13 @@
 [ext_resource path="res://hud_overlay.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-
 extents = Vector2( 107.598, 78.2151 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 85.7913
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 44.3046
 
 [node name="enemy_ship" type="Control" groups=[
 "enemy",
@@ -22,6 +27,9 @@ margin_top = -512.0
 margin_right = 300.0
 margin_bottom = 512.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
@@ -43,7 +51,9 @@ expand = true
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
 
-[node name="hit_box" type="Area2D" parent="Sprite"]
+[node name="hit_box" type="Area2D" parent="Sprite" groups=[
+"ship_hit",
+]]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 4 )
@@ -62,3 +72,18 @@ margin_bottom = 31.0
 text = "shield 100"
 script = ExtResource( 5 )
 
+[node name="speed_check" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="speed_check"]
+shape = SubResource( 2 )
+
+[node name="slow_check" type="Area2D" parent="." groups=[
+"slow",
+]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="slow_check"]
+shape = SubResource( 3 )

@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/move_reticule.png-8becee9cf9b293a9218d57416a006998.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

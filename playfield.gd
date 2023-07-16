@@ -1,9 +1,9 @@
 extends Control
-var player_ship = load("res://player_ship_control.tscn")
+var player_ship = preload("res://player_ship_control.tscn")
 
 #var enemy_ship = load("res://enemy_ship.tscn")
-var enemy_ship_rom = load("res://bop.tscn")
-var enemy_ship_kling = load("res://enemy_ship.tscn")
+var enemy_ship_rom = preload("res://bop.tscn")
+var enemy_ship_kling = preload("res://klang.tscn")
 var ship_space
 
 

@@ -5,9 +5,10 @@ export var playerno = 0
 # var a = 2
 # var b = "text"
 var playerwin = ["Your enemy's ship cracks apart like an egg. You are victorious!","In a flash of brilliant light your enemy is destroyed. Congratulations captain!", "The shards of your enemy's ship twinkle in the darkness. You win!"]
-var playerlose = ["Your ship has been destroyed. Its hull is displayed as a trophy on your rivals homeworld.","The destruction of your vessel heralds the end of your people. You lose.", "The shards of your ship twinkle in the darkness. You lose."]
+var playerlose = ["Your ship has been destroyed with all hands. You lose.","The destruction of your vessel heralds the end of your people. You lose.", "The shards of your ship twinkle in the darkness. You lose."]
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	randomize()
 	var decide = randi() % 3
 
@@ -42,6 +43,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
+	#set("z", 2000)
 #	pass
 
 func _on_ok_pressed():

@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/fire_reticule.png-a2094cd792046aa6836e0a175c1ff525.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

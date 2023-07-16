@@ -11,5 +11,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if globals.state == "move":
-		set_global_position(get_parent().get_node("Sprite/Position2D").get_global_position())
+		if not get_tree().get_nodes_in_group("player")[0].destroyed:
+			set_global_position(get_parent().get_node("Sprite/Position2D").get_global_position())
 #	pass

@@ -7,11 +7,9 @@
 [ext_resource path="res://hud_overlay.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-
 extents = Vector2( 45.7583, 96.3051 )
 
 [sub_resource type="RectangleShape2D" id=2]
-
 extents = Vector2( 70.7234, 54.6967 )
 
 [node name="enemy_ship" type="Control" groups=[
@@ -71,4 +69,3 @@ margin_right = 80.0
 margin_bottom = 31.0
 text = "shield 100"
 script = ExtResource( 5 )
-

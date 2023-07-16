@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://splashspin.gd" type="Script" id=1]
 [ext_resource path="res://assets/Omega_Nebula.jpg" type="Texture" id=2]
@@ -12,9 +12,9 @@
 [ext_resource path="res://assets/main_font_small.tres" type="DynamicFont" id=10]
 [ext_resource path="res://version.gd" type="Script" id=11]
 [ext_resource path="res://assets/main_font_tiny.tres" type="DynamicFont" id=12]
+[ext_resource path="res://assets/main_font_medium_serial.tres" type="DynamicFont" id=13]
 
 [sub_resource type="GDScript" id=1]
-
 script/source = "extends Control
 var aboutpage = load(\"res://about.tscn\")
 # Declare member variables here. Examples:
@@ -49,7 +49,6 @@ func _on_Button3_pressed():
 "
 
 [sub_resource type="GDScript" id=2]
-
 script/source = "extends Label
 
 # Declare member variables here. Examples:
@@ -72,7 +71,6 @@ anchor_bottom = 1.0
 script = SubResource( 1 )
 
 [node name="Control" type="Control" parent="."]
-editor/display_folded = true
 margin_left = -498.0
 margin_top = -260.0
 margin_right = -458.0
@@ -233,7 +231,7 @@ position = Vector2( -3992.27, 20.2005 )
 texture = ExtResource( 4 )
 
 [node name="kelvin12" type="Sprite" parent="Control"]
-position = Vector2( -3915.58, 922.414 )
+position = Vector2( -2661.54, 1321.85 )
 texture = ExtResource( 4 )
 
 [node name="kelvin14" type="Sprite" parent="Control"]
@@ -325,7 +323,7 @@ rotation = -2.76774
 texture = ExtResource( 5 )
 
 [node name="miranda27" type="Sprite" parent="Control"]
-position = Vector2( 2154.63, 919.24 )
+position = Vector2( 974.905, 408.336 )
 rotation = -2.76774
 texture = ExtResource( 5 )
 
@@ -415,7 +413,7 @@ rotation = -2.76774
 texture = ExtResource( 5 )
 
 [node name="miranda26" type="Sprite" parent="Control"]
-position = Vector2( 1865.82, 628.506 )
+position = Vector2( 1466.39, 210.493 )
 rotation = -2.76774
 texture = ExtResource( 5 )
 
@@ -792,22 +790,25 @@ texture = ExtResource( 8 )
 centered = false
 
 [node name="Label" type="Label" parent="."]
-margin_top = 17.0
+margin_top = 51.801
 margin_right = 600.0
-margin_bottom = 63.0
+margin_bottom = 97.801
 size_flags_horizontal = 3
 size_flags_vertical = 7
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 13 )
 custom_colors/font_color = Color( 1, 0.494118, 0, 1 )
 text = "Close Quarters Battle"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="version" type="Label" parent="."]
 margin_left = 105.0
-margin_top = 49.0
+margin_top = 83.801
 margin_right = 494.0
-margin_bottom = 95.0
+margin_bottom = 129.801
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_fonts/font = ExtResource( 10 )
@@ -816,12 +817,15 @@ text = "Close Quarters Battle"
 align = 2
 valign = 1
 script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="version2" type="Label" parent="."]
 margin_left = 105.0
-margin_top = 70.476
+margin_top = 105.277
 margin_right = 494.0
-margin_bottom = 116.476
+margin_bottom = 151.277
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_fonts/font = ExtResource( 12 )
@@ -851,12 +855,13 @@ size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="VBoxContainer2"]
 margin_right = 600.0
-margin_bottom = 67.0
+margin_bottom = 103.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 9 )
-text = "Single Player"
+text = "Start"
 
 [node name="Button2" type="Button" parent="VBoxContainer2"]
+visible = false
 margin_top = 71.0
 margin_right = 600.0
 margin_bottom = 138.0
@@ -865,13 +870,12 @@ custom_fonts/font = ExtResource( 9 )
 text = "Two Player Local"
 
 [node name="Button3" type="Button" parent="VBoxContainer2"]
-margin_top = 142.0
+margin_top = 107.0
 margin_right = 600.0
 margin_bottom = 211.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 9 )
 text = "About"
-
 [connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Button3" to="." method="_on_Button3_pressed"]

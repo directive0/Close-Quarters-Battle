@@ -14,7 +14,11 @@ var last_target
 
 var stats = {"hull" : 100, "shield" : 100, "torpedoes" : 10, "particle" : 100, "energy" : 100}
 
-var explosion = load("res://explosion.tscn")
+var explosion = preload("res://explosion.tscn")
+var big_explosion = preload("res://player_explosion.tscn")
+
+var current_velocity = 1
+var acceleration = 1.5
 
 var t = 0.0
 
@@ -27,11 +31,11 @@ var decider
 
 
 var weapon_away = false
-var torpedo = load("res://torpedo.tscn")
-var reveal_line = load("res://sensordata.tscn")
+var torpedo = preload("res://torpedo.tscn")
+var reveal_line = preload("res://sensordata.tscn")
 #var torpedo = load("res://test.tscn")
-var p_beam = load("res://phaser.tscn")
-var scanner = load("res://scan.tscn")
+var p_beam = preload("res://phaser.tscn")
+var scanner = preload("res://scan.tscn")
 
 var init = false
 
@@ -45,10 +49,16 @@ var sensor = 0
 var revealed = false
 var criticaled = false
 
+var destroyed = false
+
+var player = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
+	if is_in_group("player"):
+		player = true
+		
 	# load our level timer object
 	t = get_tree().get_nodes_in_group("level_timer")[0]
 	
@@ -58,29 +68,46 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Sprite.set_rotation_degrees(angle)
 	
-	if globals.state == "ready":
-		if globals.move_count == 0:
-			jump_to(find_start())
-			#globals.state = "idle"
+	if not destroyed:
+		# adjust the ship sprite to that angle of movement
+		$Sprite.set_rotation_degrees(angle)
+	
+		# if we are ready to begin the game
+		if globals.state == "ready":
+			
+			# see if this is the first move
+			if globals.move_count == 0:
+				# put ships in their proper place.
+				jump_to(find_start())
+				#globals.state = "idle"
+	
+		# when moving
+		if globals.state == "move":
+			
+			# react to and log damage.
+			damage_report()
+			
+			# if we have a course we are heading in
+			if courset:
+				# move us in that direction
+				move(delta)
+				
 
-	if globals.state == "move":
-		
-		damage_report()
-		
-		if courset:
-			move(delta)
-
-		if chambered:
-			print(globals.chambered)
-			if globals.chambered == 0:
-				fire_p_beam()#fire_torpedo()
-			if globals.chambered == 1:
-				fire_torpedo()
-			if globals.chambered == 2:
-				scan()
-			chambered = false
+					
+			# if we have a weapon selected.
+			if chambered:
+				
+				# deploy our weapon
+				if globals.chambered == 0:
+					fire_p_beam()
+				if globals.chambered == 1:
+					fire_torpedo()
+				if globals.chambered == 2:
+					scan()
+				
+				# we are no longer chambered.
+				chambered = false
 #	pass
 func place():
 	jump_to(find_start())
@@ -88,8 +115,8 @@ func place():
 
 func hit(damage):
 	
-	if criticaled:
-		damage = damage * 2
+	#if criticaled:
+		#damage = damage * 2
 	
 	var this_splode = explosion.instance()
 	
@@ -108,9 +135,13 @@ func hit(damage):
 	
 
 func damage_report():
-	if stats["hull"] <= 0:
-		globals.note_text = "Ship destroyed!"
-		globals.state = "player dead"
+	if stats["hull"] <= 0 and destroyed == false:
+		globals.note_text = "All hands abandon sh-"
+		destroyed = true
+		var this_splode = big_explosion.instance()
+		add_child(this_splode)
+		$Sprite.queue_free()
+		print("player died")
 
 func find_start():
 	var first_spot = grid[start_cell].get_node("Position2D")
@@ -138,7 +169,7 @@ func move_to(destination):
 
 func fire_torpedo():
 	var this_torp = torpedo.instance()
-	print("firing torp at: ", get_global_position())
+	#print("firing torp at: ", get_global_position())
 	#this_torp.set_global_position(get_global_position())
 	this_torp.setup(self,last_cell,current_target)
 	
@@ -152,15 +183,15 @@ func fire_torpedo():
 
 func fire_p_beam():
 	var this_beam = p_beam.instance()
-	print("firing pbeam at: ", get_global_position())
-	this_beam.setup(self,current_target)
+	#print("firing pbeam at: ", get_global_position())
+	this_beam.setup($Sprite/Position2D,self,current_target)
 	#var substrate = get_tree().get_nodes_in_group("ship_space")[0]
 	$weaponpoint.add_child(this_beam)
 
 func scan():
 	var this_beam = scanner.instance()
 	this_beam.setup(self,last_cell,current_target)
-	print("scanning", get_global_position())
+	#print("scanning", get_global_position())
 	randomize()
 	var crit = randi()% 2
 	if crit == 0:
@@ -179,9 +210,18 @@ func fire_at(target, weapon = 1):
 
 func reset():
 	last_cell = current_cell
+	if courset:
+		if player:
+			current_velocity = current_velocity * acceleration
+			if current_velocity >= 4:
+				current_velocity = 4
+			$speed_check.set_scale(Vector2(current_velocity,current_velocity))
+			$slow_check.set_scale(Vector2(current_velocity,current_velocity))
+			
 	courset = false
 	chambered = false
-	print("move done")
+	criticaled = false
+	#print("move done")
 	#if sensor == 1:
 		
 

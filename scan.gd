@@ -1,9 +1,11 @@
 extends Node2D
 var test = false
 var firer
+var origin
 var ping = load("res://ping.tscn")
 var shotfrom
 var t
+var ship
 var lastloc = Vector2()
 var newloc = Vector2()
 var this_roll
@@ -11,9 +13,6 @@ var this_roll
 var frame
 var angle_to_target
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,11 +26,11 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func setup(fired,origin,target):
+func setup(fired, origin, target):
+	ship = origin
 	firer = fired
 	shotfrom = firer.get_global_position()
 	set_as_toplevel(true)
-	firer = fired
 	#var adjust_origin = Vector2(origin.x + (globals.cellsize / 2), origin.y + (globals.cellsize / 2))
 	#var adjust_target = Vector2(target.x + (globals.cellsize / 2), target.y + (globals.cellsize / 2))
 	
@@ -63,33 +62,27 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	pass # Replace with function body.
 
 func decide():
-	# when scan fires theres a 1/3 chance of each thing happening
+	# when scan fires theres a 1in3 chance of each thing happening
+	# 0 = nothing, 1 = movement preknowledge, 2 = critical hit next shot.
 	randomize()
 	var outcome = randi()% 3
 	if test == true:
 		if outcome == 0:
 			outcome = 1
-	# outcome 1: Nothing happens.
+
 	if outcome == 0:
-		globals.note_text = "We've determined a weakness, Captain!"
+		globals.note_text = "It's no good, Captain! Sensors can't read anything!"
 	elif outcome == 1:
 		globals.note_text = "Calculated enemy movement, Captain!"
 	elif outcome == 2:
 		globals.note_text = "We've determined a weakness, Captain!"
 	
 	return outcome
-	#var thisping = ping.instance()
-	
-	
-	#get_tree().get_nodes_in_group("enemy")[0].add_child(thisping)
-	#firer.sensor = outcome
-
 
 
 func _on_Area2D_area_shape_entered(area_id, area, area_shape, self_shape):
 	
 	var this_ship = area.get_parent().get_parent()
-	
 	if this_ship.is_in_group("enemy"):
 		
 		
@@ -100,7 +93,7 @@ func _on_Area2D_area_shape_entered(area_id, area, area_shape, self_shape):
 		
 		
 		if this_roll == 0:
-			pass
+			this_ship.criticaled = true
 		elif this_roll == 1:
 			print("GOT ONE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
 			this_ship.revealed = true

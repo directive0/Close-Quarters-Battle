@@ -18,12 +18,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ship_space" type="Control" parent="." groups=[
 "ship_space",
 ]]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="reticule_space" type="Control" parent="." groups=[
 "reticule_space",
@@ -987,5 +993,4 @@ margin_left = 540.0
 margin_top = 930.0
 margin_right = 590.0
 margin_bottom = 1019.0
-
 [connection signal="ready" from="GridContainer" to="." method="_on_GridContainer_ready"]

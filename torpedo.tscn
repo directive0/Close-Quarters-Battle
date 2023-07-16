@@ -9,7 +9,6 @@
 [ext_resource path="res://assets/sounds/00 - Desktop - tos hullhit 2.ogg" type="AudioStream" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
-
 radius = 28.5427
 
 [node name="torpedo" type="Node2D"]

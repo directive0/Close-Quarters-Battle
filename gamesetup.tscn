@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://about.gd" type="Script" id=1]
+[ext_resource path="res://gamesetup.gd" type="Script" id=1]
 [ext_resource path="res://assets/main_font_small.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/main_font_large.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/main_font_medium.tres" type="DynamicFont" id=4]
 [ext_resource path="res://assets/main_font_tiny.tres" type="DynamicFont" id=5]
-[ext_resource path="res://selector_button.gd" type="Script" id=6]
-[ext_resource path="res://assets/sounds/00 - Desktop - tos keypress7.ogg" type="AudioStream" id=7]
-[ext_resource path="res://OptionButton.gd" type="Script" id=8]
+[ext_resource path="res://no.gd" type="Script" id=6]
+[ext_resource path="res://opponent_selector.gd" type="Script" id=7]
+[ext_resource path="res://assets/sounds/00 - Desktop - tos keypress7.ogg" type="AudioStream" id=8]
+[ext_resource path="res://OptionButton.gd" type="Script" id=9]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -24,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="TopBar" type="ColorRect" parent="ColorRect/VBoxContainer"]
+editor/display_folded = true
 margin_right = 600.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
@@ -75,29 +77,31 @@ rect_min_size = Vector2( 0, 50 )
 [node name="Narrative" type="Label" parent="ColorRect/VBoxContainer/body/VBoxContainer"]
 margin_top = 106.0
 margin_right = 560.0
-margin_bottom = 256.0
+margin_bottom = 238.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 4 )
-text = "Regula System
+text = "Open combat in close quarters. 
 
-No stellar objects.
+
+
 
 "
 align = 3
 autowrap = true
 
 [node name="GridContainer" type="GridContainer" parent="ColorRect/VBoxContainer/body/VBoxContainer"]
-margin_top = 260.0
+margin_top = 242.0
 margin_right = 560.0
-margin_bottom = 410.0
+margin_bottom = 374.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 4
 
 [node name="checklabel" type="Control" parent="ColorRect/VBoxContainer/body/VBoxContainer/GridContainer"]
 editor/display_folded = true
+visible = false
 margin_right = 184.0
-margin_bottom = 150.0
+margin_bottom = 79.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -124,11 +128,13 @@ margin_left = -38.0
 margin_top = -53.3925
 margin_right = 38.0
 margin_bottom = -13.3925
+disabled = true
 
 [node name="checklabel2" type="Control" parent="ColorRect/VBoxContainer/body/VBoxContainer/GridContainer"]
-margin_left = 188.0
-margin_right = 372.0
-margin_bottom = 150.0
+editor/display_folded = true
+visible = false
+margin_right = 276.0
+margin_bottom = 79.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -155,11 +161,12 @@ margin_left = -38.0
 margin_top = -53.3925
 margin_right = 38.0
 margin_bottom = -13.3925
+disabled = true
 
 [node name="checklabel3" type="Control" parent="ColorRect/VBoxContainer/body/VBoxContainer/GridContainer"]
-margin_left = 376.0
-margin_right = 560.0
-margin_bottom = 150.0
+visible = false
+margin_right = 552.0
+margin_bottom = 79.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -186,40 +193,65 @@ margin_left = -38.0
 margin_top = -53.3925
 margin_right = 38.0
 margin_bottom = -13.3925
+disabled = true
 
-[node name="title1" type="Label" parent="ColorRect/VBoxContainer/body/VBoxContainer"]
-margin_top = 414.0
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer/body/VBoxContainer"]
+margin_top = 378.0
 margin_right = 560.0
-margin_bottom = 432.0
+margin_bottom = 407.0
+
+[node name="title1" type="Label" parent="ColorRect/VBoxContainer/body/VBoxContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 204.0
+margin_bottom = 23.0
 custom_fonts/font = ExtResource( 2 )
 text = "Number of enemies"
 
-[node name="HSlider" type="HSlider" parent="ColorRect/VBoxContainer/body/VBoxContainer"]
-margin_top = 436.0
+[node name="no" type="Label" parent="ColorRect/VBoxContainer/body/VBoxContainer/HBoxContainer"]
+margin_left = 208.0
 margin_right = 560.0
-margin_bottom = 476.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 3 )
+text = "#"
+align = 2
+script = ExtResource( 6 )
+
+[node name="HSlider" type="HSlider" parent="ColorRect/VBoxContainer/body/VBoxContainer"]
+margin_top = 411.0
+margin_right = 560.0
+margin_bottom = 451.0
 rect_min_size = Vector2( 0, 40 )
 min_value = 1.0
 max_value = 3.0
 value = 1.0
+ticks_on_borders = true
 
 [node name="Control2" type="Control" parent="ColorRect/VBoxContainer/body/VBoxContainer"]
-margin_top = 480.0
+margin_top = 455.0
 margin_right = 560.0
-margin_bottom = 505.0
+margin_bottom = 480.0
 rect_min_size = Vector2( 0, 25 )
 
 [node name="title2" type="Label" parent="ColorRect/VBoxContainer/body/VBoxContainer"]
-margin_top = 509.0
+margin_top = 484.0
 margin_right = 560.0
-margin_bottom = 527.0
+margin_bottom = 502.0
+size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 text = "Species"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/VBoxContainer/body/VBoxContainer"]
-margin_top = 531.0
+[node name="Control5" type="Control" parent="ColorRect/VBoxContainer/body/VBoxContainer"]
+margin_top = 506.0
 margin_right = 560.0
-margin_bottom = 571.0
+margin_bottom = 526.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/VBoxContainer/body/VBoxContainer"]
+margin_top = 530.0
+margin_right = 560.0
+margin_bottom = 570.0
 rect_min_size = Vector2( 0, 25 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer/body/VBoxContainer/HBoxContainer2"]
@@ -234,7 +266,11 @@ margin_right = 278.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 color = Color( 0.521569, 0, 0, 1 )
-script = ExtResource( 6 )
+script = ExtResource( 7 )
+active_colour = Color( 0.443137, 0, 0, 1 )
+inactive_colour = Color( 0, 0, 0, 1 )
+black_colour = Color( 0, 0, 0, 1 )
+white_colour = Color( 1, 1, 1, 1 )
 
 [node name="Button" type="Button" parent="ColorRect/VBoxContainer/body/VBoxContainer/HBoxContainer2/HBoxContainer/selector_button"]
 anchor_right = 1.0
@@ -251,8 +287,12 @@ margin_right = 560.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 color = Color( 0.521569, 0, 0, 1 )
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 controls = 1
+active_colour = Color( 0, 0.356863, 0, 1 )
+inactive_colour = Color( 0, 0, 0, 1 )
+black_colour = Color( 0, 0, 0, 1 )
+white_colour = Color( 1, 1, 1, 1 )
 
 [node name="Button" type="Button" parent="ColorRect/VBoxContainer/body/VBoxContainer/HBoxContainer2/HBoxContainer/selector_button2"]
 anchor_right = 1.0
@@ -270,8 +310,7 @@ margin_right = 444.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 color = Color( 0.521569, 0, 0, 1 )
-script = ExtResource( 6 )
-controls = 2
+script = ExtResource( 7 )
 
 [node name="Button" type="Button" parent="ColorRect/VBoxContainer/body/VBoxContainer/HBoxContainer2/HBoxContainer/selector_button3"]
 anchor_right = 1.0
@@ -283,7 +322,7 @@ text = "Scan"
 flat = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ColorRect/VBoxContainer/body/VBoxContainer/HBoxContainer2/HBoxContainer"]
-stream = ExtResource( 7 )
+stream = ExtResource( 8 )
 
 [node name="OptionButton" type="OptionButton" parent="ColorRect/VBoxContainer/body/VBoxContainer/HBoxContainer2"]
 visible = false
@@ -293,7 +332,7 @@ size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 4 )
 toggle_mode = true
 flat = true
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer/body/VBoxContainer/HBoxContainer2"]
 visible = false
@@ -306,32 +345,39 @@ text = "50%"
 align = 1
 
 [node name="Control4" type="Control" parent="ColorRect/VBoxContainer/body/VBoxContainer"]
-margin_top = 575.0
+margin_top = 574.0
 margin_right = 560.0
-margin_bottom = 600.0
+margin_bottom = 599.0
 rect_min_size = Vector2( 0, 25 )
 
-[node name="Button" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="Control" type="Control" parent="ColorRect/VBoxContainer"]
 margin_top = 648.0
 margin_right = 600.0
-margin_bottom = 834.0
+margin_bottom = 848.0
+rect_min_size = Vector2( 0, 200 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer"]
+margin_top = 852.0
+margin_right = 600.0
+margin_bottom = 936.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
 text = "Let's go!"
 
 [node name="Button2" type="Button" parent="ColorRect/VBoxContainer"]
-margin_top = 838.0
+margin_top = 940.0
 margin_right = 600.0
 margin_bottom = 1024.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
 text = "Cancel"
-
 [connection signal="value_changed" from="ColorRect/VBoxContainer/body/VBoxContainer/HSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/body/VBoxContainer/HBoxContainer2/HBoxContainer/selector_button/Button" to="ColorRect/VBoxContainer/body/VBoxContainer/HBoxContainer2/HBoxContainer/selector_button" method="_on_Button_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/body/VBoxContainer/HBoxContainer2/HBoxContainer/selector_button2/Button" to="ColorRect/VBoxContainer/body/VBoxContainer/HBoxContainer2/HBoxContainer/selector_button2" method="_on_Button_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/body/VBoxContainer/HBoxContainer2/HBoxContainer/selector_button3/Button" to="ColorRect/VBoxContainer/body/VBoxContainer/HBoxContainer2/HBoxContainer/selector_button3" method="_on_Button_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/Button2" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]

@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/miranda.png-0a8e32d75dbe6db4c2ee0900611c7fd8.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

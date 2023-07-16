@@ -10,6 +10,14 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.690196 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 anchor_left = 0.5
@@ -72,6 +80,9 @@ margin_bottom = -492.225
 custom_fonts/font = ExtResource( 3 )
 text = "CLOSE QUARTERS BATTLE"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="ColorRect/VBoxContainer/body"]
 anchor_right = 1.0
@@ -81,10 +92,15 @@ margin_top = 79.775
 margin_right = -10.0
 margin_bottom = -432.225
 custom_fonts/font = ExtResource( 4 )
-text = "Written by Chris Barrett
+text = "Written by Chris Barrett at
+
+SKURFSOFT
 
 Constructed using the Godot Engine"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label2" type="Label" parent="ColorRect/VBoxContainer/body"]
 anchor_right = 1.0
@@ -94,9 +110,21 @@ margin_top = 437.0
 margin_right = -10.0
 margin_bottom = -6.0
 custom_fonts/font = ExtResource( 4 )
-text = "No rights reserved whatsoever.
-
+text = "
 Source available at:"
+align = 1
+
+[node name="Label3" type="Label" parent="ColorRect/VBoxContainer/body"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -305.232
+margin_top = 197.949
+margin_right = 306.768
+margin_bottom = 312.949
+custom_fonts/font = ExtResource( 3 )
+text = "https://git.io/fh7My"
 align = 1
 
 [node name="TextureRect2" type="TextureRect" parent="ColorRect/VBoxContainer/body"]
@@ -106,9 +134,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -142.0
-margin_top = -164.404
+margin_top = -147.263
 margin_right = 158.0
-margin_bottom = 135.596
+margin_bottom = 152.737
 texture = ExtResource( 5 )
 expand = true
 
@@ -118,11 +146,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -150.0
-margin_top = -182.404
+margin_top = -165.263
 margin_right = 150.0
-margin_bottom = 117.596
+margin_bottom = 134.737
 texture = ExtResource( 5 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button" type="Button" parent="ColorRect/VBoxContainer"]
 margin_top = 698.0
@@ -132,5 +163,4 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
 text = "Okay, great."
-
 [connection signal="pressed" from="ColorRect/VBoxContainer/Button" to="." method="_on_Button_pressed"]

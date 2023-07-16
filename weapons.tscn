@@ -57,6 +57,10 @@ margin_bottom = 40.0
 size_flags_horizontal = 3
 color = Color( 0.521569, 0, 0, 1 )
 script = ExtResource( 3 )
+active_colour = Color( 0.964706, 1, 0, 1 )
+inactive_colour = Color( 0.176471, 0.180392, 0.12549, 1 )
+black_colour = Color( 0, 0, 0, 1 )
+white_colour = Color( 1, 1, 1, 1 )
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/HBoxContainer/selector_button"]
 anchor_right = 1.0
@@ -75,6 +79,10 @@ size_flags_horizontal = 3
 color = Color( 0.521569, 0, 0, 1 )
 script = ExtResource( 3 )
 controls = 1
+active_colour = Color( 0.964706, 1, 0, 1 )
+inactive_colour = Color( 0.176471, 0.180392, 0.12549, 1 )
+black_colour = Color( 0, 0, 0, 1 )
+white_colour = Color( 1, 1, 1, 1 )
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/HBoxContainer/selector_button2"]
 anchor_right = 1.0
@@ -93,6 +101,10 @@ size_flags_horizontal = 3
 color = Color( 0.521569, 0, 0, 1 )
 script = ExtResource( 3 )
 controls = 2
+active_colour = Color( 0.964706, 1, 0, 1 )
+inactive_colour = Color( 0.176471, 0.180392, 0.12549, 1 )
+black_colour = Color( 0, 0, 0, 1 )
+white_colour = Color( 1, 1, 1, 1 )
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/HBoxContainer/selector_button3"]
 anchor_right = 1.0

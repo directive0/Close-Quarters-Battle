@@ -21,6 +21,8 @@ var frame
 var firer
 var angle_to_target
 
+var away = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_visible(false)
@@ -119,4 +121,10 @@ func _on_Area2D_area_entered(area):
 
 func _on_splode_finished():
 	queue_free()
-	pass # Replace with function body.
+
+
+
+func _on_Timer_timeout():
+	# lets the torp get away before pbeams can destroy it (more fun?)
+	away = true
+

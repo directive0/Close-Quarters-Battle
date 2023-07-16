@@ -1,18 +1,21 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://playfield.tscn" type="PackedScene" id=2]
 [ext_resource path="res://topbar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui.tscn" type="PackedScene" id=4]
-[ext_resource path="res://helpful_text.tscn" type="PackedScene" id=5]
 
-[node name="main" type="Control"]
+[node name="main" type="Control" groups=[
+"main",
+]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="playfield" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
 show_behind_parent = true
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -20,9 +23,7 @@ margin_top = 64.0
 margin_right = 600.0
 margin_bottom = 664.0
 rect_min_size = Vector2( 600, 600 )
-
-[node name="GridContainer" parent="playfield" index="3"]
-editor/display_folded = true
+mouse_filter = 1
 
 [node name="cell" parent="playfield/GridContainer" index="0"]
 margin_bottom = 50.0
@@ -497,32 +498,32 @@ margin_bottom = 590.0
 margin_top = 540.0
 margin_bottom = 590.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="level_timer" type="Timer" parent="." groups=[
+"level_timer",
+]]
+wait_time = 5.0
+one_shot = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 alignment = 1
 
-[node name="topbar" parent="VBoxContainer" instance=ExtResource( 3 )]
+[node name="topbar" parent="CanvasLayer/VBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 600.0
 margin_bottom = 60.0
 
-[node name="VBoxContainer" parent="VBoxContainer/topbar" index="0"]
-editor/display_folded = true
-
-[node name="Controls" parent="VBoxContainer/topbar/VBoxContainer" index="0"]
-margin_bottom = 28.0
-
-[node name="ColorRect2" parent="VBoxContainer/topbar/VBoxContainer/Controls" index="1"]
-margin_bottom = 28.0
-
-[node name="ColorRect" parent="VBoxContainer/topbar/VBoxContainer" index="1"]
-margin_top = 32.0
-margin_bottom = 60.0
-
-[node name="Control" type="Control" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer"]
 margin_top = 64.0
 margin_right = 600.0
 margin_bottom = 664.0
@@ -531,33 +532,17 @@ mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ui" parent="VBoxContainer" instance=ExtResource( 4 )]
+[node name="ui" parent="CanvasLayer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 668.0
 margin_right = 600.0
 margin_bottom = 1024.0
 
-[node name="level_timer" type="Timer" parent="." groups=[
-"level_timer",
-]]
-wait_time = 5.0
-one_shot = true
-
-[node name="Control" parent="." instance=ExtResource( 5 )]
-visible = false
-margin_top = 100.0
-margin_bottom = 100.0
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.3
-one_shot = true
-autostart = true
-
+[node name="gameoverbox" type="CanvasLayer" parent="."]
+layer = 10
 [connection signal="ready" from="playfield" to="." method="_on_playfield_ready"]
 [connection signal="timeout" from="level_timer" to="." method="_on_level_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="playfield"]
-
-[editable path="VBoxContainer/topbar"]

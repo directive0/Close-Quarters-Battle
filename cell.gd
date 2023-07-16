@@ -5,6 +5,10 @@ var player
 var target = load("res://target_reticule.tscn")
 var course = load("res://course_reticule.tscn")
 var reticule_space
+var highlighted = false
+var not_highlighted = Color(0, 0, 0, 0.13)
+var highlight = Color(1, 1, 1, 0.13)
+var highlight_slow = Color(0, 0.109375, 1, 0.13)
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -16,13 +20,29 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+		
+	# controls whether the cell lights up indicating it is within the players reach this turn.
+	if $Control/checkspace.get_overlapping_areas().size() > 0:
+		var slow = false
+		for area in $Control/checkspace.get_overlapping_areas():
+			if area.is_in_group("slow"):
+				slow = true
+		
+		if slow:
+			$ColorRect/TextureButton.set_modulate(highlight_slow)
+		else:
+			$ColorRect/TextureButton.set_modulate(highlight)
+	else:
+		$ColorRect/TextureButton.set_modulate(not_highlighted)
+	
+	highlighted = false
 	
 	find_center()
 	
 	if globals.hide_field == true:
-		set_visible(false)
+		$ColorRect.set_visible(false)
 	else:
-		set_visible(true)
+		$ColorRect.set_visible(true)
 
 # not yet functional. Will allow the cell to annunciate when it is different from other cells.
 func cell_assign():
@@ -37,12 +57,7 @@ func cell_assign():
 func find_center():
 	var center = Vector2(get_size().x/2,get_size().y/2)
 	$Position2D.set_position(center)
-	
 
-#func clear_all():
-#	var children = $reticule_holder.get_children()
-#	if children.size() > 0:
-#		children[0].queue_free()
 
 # the following is code relating to each press and behaviour is determined by what state the game is in.
 # if the state is not something that requires interaction with the cells then it is ignored.
@@ -85,20 +100,20 @@ func _on_TextureButton_pressed():
 		globals.state = "idle"
 
 
-
 	if globals.state == "set_move":
-		$AudioStreamPlayer.play()
-		player = get_tree().get_nodes_in_group("player")[0]
-		globals.note_text = "Course laid in"
-		player.move_to(position)
-		player.last_cell = player.current_cell
-		player.current_cell = self
-		var reticule = course.instance()
-		#reticule.set_global_position(position)
-		#reticule.set_size(get_size())
-		globals.clear_course()
-		$reticule_holder.add_child(reticule)
-		globals.state = "idle"
+		if $Control/checkspace.get_overlapping_areas().size() > 0:
+			$AudioStreamPlayer.play()
+			player = get_tree().get_nodes_in_group("player")[0]
+			globals.note_text = "Course laid in"
+			player.move_to(position)
+			player.last_cell = player.current_cell
+			player.current_cell = self
+			var reticule = course.instance()
+			#reticule.set_global_position(position)
+			#reticule.set_size(get_size())
+			globals.clear_course()
+			$reticule_holder.add_child(reticule)
+			globals.state = "idle"
 
 	if globals.state == "set_target":
 		$AudioStreamPlayer2.play()
@@ -114,3 +129,12 @@ func _on_TextureButton_pressed():
 		$reticule_holder.add_child(reticule)
 		globals.state = "idle"
 		
+
+func _on_checkspace_area_entered(area):
+	#highlighted = true
+	pass
+
+
+func _on_slow_space_area_entered(area):
+	#highlighted = false
+	pass

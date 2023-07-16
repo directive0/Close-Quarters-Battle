@@ -7,7 +7,6 @@
 [ext_resource path="res://assets/square.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "intro"
 length = 10.0
 tracks/0/type = "value"

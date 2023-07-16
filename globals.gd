@@ -1,6 +1,6 @@
 extends Node
-var version = "Open Beta v1.4a"
-var version2 = "(The 'How about this?' update!)"
+var version = "Open Beta v1.8"
+var version2 = "(The 'hold your horses' update!)"
 var player = {}
 var enemy = {}
 var state = "start"
@@ -98,17 +98,18 @@ func end_turn():
 	else:
 		# all this stuff is single player only.
 		
-		get_tree().get_nodes_in_group("player")[0].reset()
-		
-		if get_tree().get_nodes_in_group("player")[0].sensor == 1:
-			get_tree().get_nodes_in_group("player")[0].sensor = 0
+		if get_tree().get_nodes_in_group("player").size() > 0:
+			get_tree().get_nodes_in_group("player")[0].reset()
+			
+			if get_tree().get_nodes_in_group("player")[0].sensor == 1:
+				get_tree().get_nodes_in_group("player")[0].sensor = 0
+				for i in range(get_tree().get_nodes_in_group("enemy").size()):
+					get_tree().get_nodes_in_group("enemy")[i].revealed = true
+			
+			#reset every enemy ship
 			for i in range(get_tree().get_nodes_in_group("enemy").size()):
-				get_tree().get_nodes_in_group("enemy")[i].revealed = true
-		
-		#reset every enemy ship
-		for i in range(get_tree().get_nodes_in_group("enemy").size()):
-			get_tree().get_nodes_in_group("enemy")[i].reset()
-		
+				get_tree().get_nodes_in_group("enemy")[i].reset()
+			
 		
 	
 func clear_target():
